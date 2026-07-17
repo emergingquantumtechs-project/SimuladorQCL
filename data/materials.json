@@ -1,0 +1,25 @@
+
+{
+    "materials":
+    [
+        {
+            "name": "GaAs",
+
+            "effective_mass": 0.067,
+
+            "band_gap": 1.424,
+
+            "dielectric_constant": 12.9
+        },
+
+        {
+            "name": "AlGaAs",
+
+            "effective_mass": 0.092,
+
+            "band_gap": 1.900,
+
+            "dielectric_constant": 11.6
+        }
+    ]
+}
