@@ -1,23 +1,41 @@
-SimuladorQCL
+**Languages:** English | [Español](README.es.md)
 
-Simulador para el análisis de estructuras cuánticas
-utilizando distintos métodos numéricos.
+# QCL Simulator
 
-Autores
+A simulator for the analysis of quantum structures
+using different numerical methods.
 
-Brenda Nayeli Gonzalez Valenzuela
-Jaime Alejandro Moreno Franco
-Yadira Beltran
+## Authors
 
-Métodos implementados
+- Brenda Nayeli Gonzalez Valenzuela
+- Jaime Alejandro Moreno Franco
+- Yadira Monserrat Beltran Zepeda
 
-✔ Euler
-✔ RKF
-✔ Leapfrog
-✔ Numerov
+## Implemented Numerical Methods
 
-Cómo compilar
+- Euler
+- Runge–Kutta–Fehlberg (RKF)
+- Leapfrog
+- Numerov
 
-Cómo ejecutar
+## Building the Project
 
-Ejemplos
+Instructions for compiling the project.
+
+## Running the Simulator
+
+Instructions for running the simulator.
+
+## Examples
+
+Example simulations and usage.
+
+## Project Structure
+
+## Requirements
+
+## Examples
+
+## Documentation
+
+## License
