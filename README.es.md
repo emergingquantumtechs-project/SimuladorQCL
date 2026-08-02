@@ -7,9 +7,9 @@ utilizando diferentes métodos numéricos.
 
 ## Autores
 
-- Brenda Nayeli González Valenzuela
-- Jaime Alejandro Moreno Franco
-- Yadira Monserrat Beltrán Zepeda
+- Nayeli Gonzalez
+- Jaime Moreno 
+- Yadira Beltrán
 
 ## Métodos Numéricos Implementados
 
