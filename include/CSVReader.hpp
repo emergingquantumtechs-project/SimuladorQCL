@@ -4,10 +4,12 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 class CSVReader
 {
 public:
-    std::vector<std::vector<std::string>> read(const std::string& filename);
+    vector<vector<string>> read(const string& filename);
 };
 
 #endif

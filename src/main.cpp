@@ -25,7 +25,7 @@ int main()
         material.bandGap = std::stod(data[i][2]);
         material.dielectricConstant = std::stod(data[i][3]);
 
-        std::cout << "- " << material.name << '\n';
+        std::cout << "- " << material.name << " " << material.effectiveMass << " "  << material.bandGap << " " << material.dielectricConstant << '\n';
     }
 
     return 0;
