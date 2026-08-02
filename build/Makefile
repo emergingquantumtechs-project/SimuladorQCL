@@ -128,6 +128,54 @@ SimuladorQCL/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/build
 .PHONY : SimuladorQCL/fast
 
+src/CSVReader.obj: src/CSVReader.cpp.obj
+.PHONY : src/CSVReader.obj
+
+# target to build an object file
+src/CSVReader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj
+.PHONY : src/CSVReader.cpp.obj
+
+src/CSVReader.i: src/CSVReader.cpp.i
+.PHONY : src/CSVReader.i
+
+# target to preprocess a source file
+src/CSVReader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.i
+.PHONY : src/CSVReader.cpp.i
+
+src/CSVReader.s: src/CSVReader.cpp.s
+.PHONY : src/CSVReader.s
+
+# target to generate assembly for a file
+src/CSVReader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.s
+.PHONY : src/CSVReader.cpp.s
+
+src/Material.obj: src/Material.cpp.obj
+.PHONY : src/Material.obj
+
+# target to build an object file
+src/Material.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj
+.PHONY : src/Material.cpp.obj
+
+src/Material.i: src/Material.cpp.i
+.PHONY : src/Material.i
+
+# target to preprocess a source file
+src/Material.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Material.cpp.i
+.PHONY : src/Material.cpp.i
+
+src/Material.s: src/Material.cpp.s
+.PHONY : src/Material.s
+
+# target to generate assembly for a file
+src/Material.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Material.cpp.s
+.PHONY : src/Material.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -161,6 +209,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... SimuladorQCL
+	@echo ... src/CSVReader.obj
+	@echo ... src/CSVReader.i
+	@echo ... src/CSVReader.s
+	@echo ... src/Material.obj
+	@echo ... src/Material.i
+	@echo ... src/Material.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

@@ -72,7 +72,6 @@ CMakeFiles/SimuladorQCL.dir/codegen:
 .PHONY : CMakeFiles/SimuladorQCL.dir/codegen
 
 CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
-CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj: CMakeFiles/SimuladorQCL.dir/includes_CXX.rsp
 CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/main.cpp
 CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj"
@@ -86,19 +85,51 @@ CMakeFiles/SimuladorQCL.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/main.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\main.cpp -o CMakeFiles\SimuladorQCL.dir\src\main.cpp.s
 
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/CSVReader.cpp
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\CSVReader.cpp
+
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\CSVReader.cpp > CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.i
+
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\CSVReader.cpp -o CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.s
+
+CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
+CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Material.cpp
+CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\Material.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\Material.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Material.cpp
+
+CMakeFiles/SimuladorQCL.dir/src/Material.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimuladorQCL.dir/src/Material.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Material.cpp > CMakeFiles\SimuladorQCL.dir\src\Material.cpp.i
+
+CMakeFiles/SimuladorQCL.dir/src/Material.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/Material.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Material.cpp -o CMakeFiles\SimuladorQCL.dir\src\Material.cpp.s
+
 # Object files for target SimuladorQCL
 SimuladorQCL_OBJECTS = \
-"CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj"
+"CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj" \
+"CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj" \
+"CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj"
 
 # External object files for target SimuladorQCL
 SimuladorQCL_EXTERNAL_OBJECTS =
 
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj
+SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj
+SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/build.make
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/linkLibs.rsp
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/objects1.rsp
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable SimuladorQCL.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable SimuladorQCL.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SimuladorQCL.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
