@@ -4,7 +4,8 @@
 #include <sstream>
 using namespace std;
 
-double ReadBoltzmann(){
+//double ReadBoltzmann(){
+double ReadConstant(string FindConstant){
 
 ifstream file("../../data/universal_constants.csv"); //para leer datos (Input File Stream)
 
@@ -14,13 +15,10 @@ if (!file.is_open()){
     }
 
 string line;
-
     getline(file, line);
+    while (getline(file, line)){
 
-    while (getline(file, line))
-    {
-        stringstream lineStream(line);
-        //separar los datos de la linea en columnas
+        stringstream lineStream(line); //separar los datos de la linea en columnas
         string constantName;
         string alias;
         string value;
@@ -32,13 +30,12 @@ string line;
         getline(lineStream, value, ',');
         getline(lineStream, unit, ',');
 
-        if (constantName == "boltzmann_constant")
-        {
+        if (constantName == FindConstant){
             return stod(value);
         }
     }
 
-    cout << "Boltzmann constant not found." << endl;
+    cout << "Constant not found: " << FindConstant << endl;
 
     return 0.0;
 
@@ -46,12 +43,13 @@ string line;
 
 int main()
 {
-    double boltzmannConstant = ReadBoltzmann();
+    double boltzmannConstant = ReadConstant("boltzmann_constant");
+    double h  = ReadConstant("planck_constant");
+    double hbar = ReadConstant("reduced_planck_constant");
 
-    //para comprobar que leía correctamente (boltzmann.exe)
-    //cout << "Boltzmann constant: "
-    //          << boltzmannConstant
-    //          << endl;
+    //cout << "Boltzmann constant: " << boltzmannConstant << endl;
+    //cout << "Planck constant: " << h << endl;
+    //cout << "Reduced Planck constant: " << hbar << endl;
 
     return 0;
 }
