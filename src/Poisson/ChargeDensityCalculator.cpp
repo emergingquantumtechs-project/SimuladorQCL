@@ -91,12 +91,7 @@ int main()
     double T = 300;
     double mu = 0.1;
 
-    ChargeDensityCalculator calculator(
-        e,
-        kB,
-        T,
-        mu
-    );
+
 
     //cout << "Boltzmann constant: " << boltzmannConstant << endl;
     //cout << "Planck constant: " << h << endl;
