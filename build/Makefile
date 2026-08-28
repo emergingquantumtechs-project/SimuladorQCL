@@ -176,6 +176,54 @@ src/Material.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Material.cpp.s
 .PHONY : src/Material.cpp.s
 
+src/MaterialManager.obj: src/MaterialManager.cpp.obj
+.PHONY : src/MaterialManager.obj
+
+# target to build an object file
+src/MaterialManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/MaterialManager.cpp.obj
+.PHONY : src/MaterialManager.cpp.obj
+
+src/MaterialManager.i: src/MaterialManager.cpp.i
+.PHONY : src/MaterialManager.i
+
+# target to preprocess a source file
+src/MaterialManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/MaterialManager.cpp.i
+.PHONY : src/MaterialManager.cpp.i
+
+src/MaterialManager.s: src/MaterialManager.cpp.s
+.PHONY : src/MaterialManager.s
+
+# target to generate assembly for a file
+src/MaterialManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/MaterialManager.cpp.s
+.PHONY : src/MaterialManager.cpp.s
+
+src/Methods/Leapfrog.obj: src/Methods/Leapfrog.cpp.obj
+.PHONY : src/Methods/Leapfrog.obj
+
+# target to build an object file
+src/Methods/Leapfrog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj
+.PHONY : src/Methods/Leapfrog.cpp.obj
+
+src/Methods/Leapfrog.i: src/Methods/Leapfrog.cpp.i
+.PHONY : src/Methods/Leapfrog.i
+
+# target to preprocess a source file
+src/Methods/Leapfrog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.i
+.PHONY : src/Methods/Leapfrog.cpp.i
+
+src/Methods/Leapfrog.s: src/Methods/Leapfrog.cpp.s
+.PHONY : src/Methods/Leapfrog.s
+
+# target to generate assembly for a file
+src/Methods/Leapfrog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.s
+.PHONY : src/Methods/Leapfrog.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -215,6 +263,12 @@ help:
 	@echo ... src/Material.obj
 	@echo ... src/Material.i
 	@echo ... src/Material.s
+	@echo ... src/MaterialManager.obj
+	@echo ... src/MaterialManager.i
+	@echo ... src/MaterialManager.s
+	@echo ... src/Methods/Leapfrog.obj
+	@echo ... src/Methods/Leapfrog.i
+	@echo ... src/Methods/Leapfrog.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

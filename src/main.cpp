@@ -1,31 +1,35 @@
+#include <iomanip>
 #include <iostream>
-#include <vector>
+#include <cmath>
 
-#include "../include/CSVReader.hpp"
-#include "../include/Material.hpp"
+#include "../include/Methods/Leapfrog.hpp"
+#include "../include/MaterialManager.hpp"
 
 int main()
 {
-    std::cout << "==============================\n";
-    std::cout << "Quantum Cascade Laser Simulator\n";
-    std::cout << "==============================\n\n";
+    double initialY = 1.0;
+    double initialVelocity = 0.0;
 
-    CSVReader reader;
+    double timeStep = 0.1;
+    double finalTime = 1.0;
 
-    auto data = reader.read("data/materials.csv");
+    auto result = Methods::leapfrog(
+        initialY,
+        initialVelocity,
+        timeStep,
+        finalTime
+    );
 
-    std::cout << "Materials loaded:\n\n";
+    std::cout << "Leapfrog test\n\n";
+    std::cout << "t\tNumerical\tExact\n";
 
-    for (size_t i = 1; i < data.size(); i++)
-    {
-        Material material;
+    for (size_t i = 0; i < result.size(); i++){
 
-        material.name = data[i][0];
-        material.effectiveMass = std::stod(data[i][1]);
-        material.bandGap = std::stod(data[i][2]);
-        material.dielectricConstant = std::stod(data[i][3]);
+        double t = i * timeStep;
 
-        std::cout << "- " << material.name << " " << material.effectiveMass << " "  << material.bandGap << " " << material.dielectricConstant << '\n';
+        double exact = std::cos(t);
+
+        std::cout << t << "\t" << result[i] << "\t" << exact << '\n';
     }
 
     return 0;

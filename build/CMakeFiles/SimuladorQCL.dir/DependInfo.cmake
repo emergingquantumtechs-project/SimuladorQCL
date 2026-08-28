@@ -10,6 +10,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/Tesis/SimuladorQCL/SimuladorQCL/src/CSVReader.cpp" "CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj" "gcc" "CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj.d"
   "E:/Tesis/SimuladorQCL/SimuladorQCL/src/Material.cpp" "CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj" "gcc" "CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj.d"
+  "E:/Tesis/SimuladorQCL/SimuladorQCL/src/MaterialManager.cpp" "CMakeFiles/SimuladorQCL.dir/src/MaterialManager.cpp.obj" "gcc" "CMakeFiles/SimuladorQCL.dir/src/MaterialManager.cpp.obj.d"
+  "E:/Tesis/SimuladorQCL/SimuladorQCL/src/Methods/Leapfrog.cpp" "CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj" "gcc" "CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj.d"
   "E:/Tesis/SimuladorQCL/SimuladorQCL/src/main.cpp" "CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj" "gcc" "CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj.d"
   )
 

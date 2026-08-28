@@ -84,12 +84,12 @@ clean: CMakeFiles/SimuladorQCL.dir/clean
 CMakeFiles/SimuladorQCL.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=1,2,3,4 "Built target SimuladorQCL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=1,2,3,4,5,6 "Built target SimuladorQCL"
 .PHONY : CMakeFiles/SimuladorQCL.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SimuladorQCL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/SimuladorQCL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles 0
 .PHONY : CMakeFiles/SimuladorQCL.dir/rule
@@ -101,7 +101,7 @@ SimuladorQCL: CMakeFiles/SimuladorQCL.dir/rule
 # codegen rule for target.
 CMakeFiles/SimuladorQCL.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target SimuladorQCL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target SimuladorQCL"
 .PHONY : CMakeFiles/SimuladorQCL.dir/codegen
 
 # clean rule for target.
