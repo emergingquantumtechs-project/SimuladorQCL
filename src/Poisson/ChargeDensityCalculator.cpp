@@ -57,7 +57,7 @@ string line;
     getline(file, line);
     while (getline(file, line)){
 
-        stringstream lineStream(line); //separar los datos de la linea en columnas
+        stringstream lineStream(line);//separar los datos de la linea en columnas
         string constantName;
         string alias;
         string value;
