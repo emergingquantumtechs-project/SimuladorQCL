@@ -165,6 +165,30 @@ src/CSVReader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.s
 .PHONY : src/CSVReader.cpp.s
 
+src/LaserQCL.obj: src/LaserQCL.cpp.obj
+.PHONY : src/LaserQCL.obj
+
+# target to build an object file
+src/LaserQCL.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.obj
+.PHONY : src/LaserQCL.cpp.obj
+
+src/LaserQCL.i: src/LaserQCL.cpp.i
+.PHONY : src/LaserQCL.i
+
+# target to preprocess a source file
+src/LaserQCL.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.i
+.PHONY : src/LaserQCL.cpp.i
+
+src/LaserQCL.s: src/LaserQCL.cpp.s
+.PHONY : src/LaserQCL.s
+
+# target to generate assembly for a file
+src/LaserQCL.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.s
+.PHONY : src/LaserQCL.cpp.s
+
 src/Material.obj: src/Material.cpp.obj
 .PHONY : src/Material.obj
 
@@ -301,6 +325,9 @@ help:
 	@echo ... src/CSVReader.obj
 	@echo ... src/CSVReader.i
 	@echo ... src/CSVReader.s
+	@echo ... src/LaserQCL.obj
+	@echo ... src/LaserQCL.i
+	@echo ... src/LaserQCL.s
 	@echo ... src/Material.obj
 	@echo ... src/Material.i
 	@echo ... src/Material.s

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj"
   "CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj.d"
+  "CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.obj"
+  "CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.obj.d"
   "CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj"
   "CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj.d"
   "CMakeFiles/SimuladorQCL.dir/src/MaterialManager.cpp.obj"

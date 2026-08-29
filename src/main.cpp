@@ -1,8 +1,10 @@
-#include <iostream>
+#include "../include/LaserQCL.hpp"
 
 int main()
 {
-    std::cout << "Quantum Cascade Laser Simulator\n";
+    LaserQCL laser;
+
+    laser.run();
 
     return 0;
 }

@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(SimuladorQCL
     src/main.cpp
+    src/LaserQCL.cpp
     src/CSVReader.cpp
     src/Material.cpp
     src/MaterialManager.cpp
