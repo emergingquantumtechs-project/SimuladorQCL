@@ -2,14 +2,17 @@
 #define LEAPFROG_HPP
 
 #include <vector>
+#include <functional>
 
 namespace Methods
 {
     std::vector<double> leapfrog(
+        double initialX,
         double initialY,
         double initialVelocity,
-        double timeStep,
-        double finalTime
+        double stepSize,
+        double finalX,
+        std::function<double(double, double)> f
     );
 }
 

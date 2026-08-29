@@ -128,6 +128,19 @@ SimuladorQCL/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/build
 .PHONY : SimuladorQCL/fast
 
+#=============================================================================
+# Target rules for targets named LeapfrogTest
+
+# Build rule for target.
+LeapfrogTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 LeapfrogTest
+.PHONY : LeapfrogTest
+
+# fast build rule for target.
+LeapfrogTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/build
+.PHONY : LeapfrogTest/fast
+
 src/CSVReader.obj: src/CSVReader.cpp.obj
 .PHONY : src/CSVReader.obj
 
@@ -206,6 +219,7 @@ src/Methods/Leapfrog.obj: src/Methods/Leapfrog.cpp.obj
 # target to build an object file
 src/Methods/Leapfrog.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.obj
 .PHONY : src/Methods/Leapfrog.cpp.obj
 
 src/Methods/Leapfrog.i: src/Methods/Leapfrog.cpp.i
@@ -214,6 +228,7 @@ src/Methods/Leapfrog.i: src/Methods/Leapfrog.cpp.i
 # target to preprocess a source file
 src/Methods/Leapfrog.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.i
 .PHONY : src/Methods/Leapfrog.cpp.i
 
 src/Methods/Leapfrog.s: src/Methods/Leapfrog.cpp.s
@@ -222,6 +237,7 @@ src/Methods/Leapfrog.s: src/Methods/Leapfrog.cpp.s
 # target to generate assembly for a file
 src/Methods/Leapfrog.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.s
 .PHONY : src/Methods/Leapfrog.cpp.s
 
 src/main.obj: src/main.cpp.obj
@@ -248,6 +264,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+test/LeapfrogTest.obj: test/LeapfrogTest.cpp.obj
+.PHONY : test/LeapfrogTest.obj
+
+# target to build an object file
+test/LeapfrogTest.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.obj
+.PHONY : test/LeapfrogTest.cpp.obj
+
+test/LeapfrogTest.i: test/LeapfrogTest.cpp.i
+.PHONY : test/LeapfrogTest.i
+
+# target to preprocess a source file
+test/LeapfrogTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.i
+.PHONY : test/LeapfrogTest.cpp.i
+
+test/LeapfrogTest.s: test/LeapfrogTest.cpp.s
+.PHONY : test/LeapfrogTest.s
+
+# target to generate assembly for a file
+test/LeapfrogTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.s
+.PHONY : test/LeapfrogTest.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -256,6 +296,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... LeapfrogTest
 	@echo ... SimuladorQCL
 	@echo ... src/CSVReader.obj
 	@echo ... src/CSVReader.i
@@ -272,6 +313,9 @@ help:
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... test/LeapfrogTest.obj
+	@echo ... test/LeapfrogTest.i
+	@echo ... test/LeapfrogTest.s
 .PHONY : help
 
 

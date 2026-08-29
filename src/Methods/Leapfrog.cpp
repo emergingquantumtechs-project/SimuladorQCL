@@ -1,28 +1,32 @@
 #include "../../include/Methods/Leapfrog.hpp"
 
 std::vector<double> Methods::leapfrog(
+    double initialX,
     double initialY,
     double initialVelocity,
-    double timeStep,
-    double finalTime
+    double stepSize,
+    double finalX,
+    std::function<double(double, double)> f
 )
-
 {
-    int steps = static_cast<int>(finalTime / timeStep);
+    int steps = static_cast<int>((finalX - initialX) / stepSize);
 
     std::vector<double> y(steps + 1);
 
     y[0] = initialY;
 
     double velocity = initialVelocity;
-    velocity += 0.5 * timeStep * (-y[0]);
+    double x = initialX;
+
+    velocity += 0.5 * stepSize * f(x, y[0]);
 
     for (int i = 0; i < steps; i++){
 
-        y[i + 1] = y[i] + timeStep * velocity;
+        y[i + 1] = y[i] + stepSize * velocity;
 
-        velocity += timeStep * (-y[i + 1]);
-    
+        x += stepSize;
+
+        velocity += stepSize * f(x, y[i + 1]);
     }
 
     return y;
