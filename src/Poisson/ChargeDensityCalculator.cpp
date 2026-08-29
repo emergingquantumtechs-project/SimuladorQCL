@@ -103,7 +103,10 @@ double ReadConstant(string FindConstant){
     getline(file, line);//salta cabecera
     while (getline(file, line)){
         stringstream lineStream(line);
-        string constantName, alias, value, unit;
+        string constantName;
+        string alias;
+        string value;
+        string unit;
 
         getline(lineStream, constantName, ',');
         getline(lineStream, alias, ',');
