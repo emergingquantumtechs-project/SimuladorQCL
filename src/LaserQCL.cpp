@@ -1,6 +1,8 @@
 #include "../include/LaserQCL.hpp"
 
 #include <iostream>
+//modelo del láser
+
 
 void LaserQCL::run()
 {

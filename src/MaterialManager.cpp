@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+//carga y consulta de materiales
+
 void MaterialManager::load(const std::string& filename)
 {
     CSVReader reader;
