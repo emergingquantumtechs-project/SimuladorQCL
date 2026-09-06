@@ -10,7 +10,6 @@ using namespace std;
 
 class ChargeDensityCalculator{
 //para cálculos relacionados con la densidad de carga
-
 private:
     double electron_Charge;
     double boltzmann_Constant;
