@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include <cmath>
+#include "../../include/CSVReader.hpp"
 
 using namespace std;
 
@@ -91,31 +92,26 @@ public:
     }
 };
 
-//lectura de constantes CSV
-double ReadConstant(string FindConstant){
-    ifstream file("../../data/universal_constants.csv");
 
-    if (!file.is_open()){
-        cout << "error: no se pudo abrir el archivo .csv" << endl;
+// lectura de constantesusando la clase CSVReader
+double ReadConstant(string FindConstant){
+    CSVReader reader;
+    vector<vector<string>> data = reader.read("../../data/universal_constants.csv");
+
+    if (data.empty()){
+        cout << "error: no se pudo abrir el archivo .csv o está vacío" << endl;
         return 0.0;
     }
 
-    string line;
-    getline(file, line);//salta cabecera
-    while (getline(file, line)){
-        stringstream lineStream(line);
-        string constantName;
-        string alias;
-        string value;
-        string unit;
+    //en 1 para saltarse el header
+    for (int i = 1; i < data.size(); i++){
+        if (data[i].size() >= 3) {
+            string constantName = data[i][0]; 
+            string value = data[i][2];        
 
-        getline(lineStream, constantName, ',');
-        getline(lineStream, alias, ',');
-        getline(lineStream, value, ',');
-        getline(lineStream, unit, ',');
-
-        if (constantName == FindConstant){
-            return stod(value);
+            if (constantName == FindConstant){
+                return stod(value);
+            }
         }
     }
 
@@ -132,7 +128,7 @@ int main(){
     double e = 1.60217646e-19;
     double kB = 1.3806503e-23;
     double T = 300;
-    double mu = 0.1; // en eV
+    double mu = 0.1; // en eV PROVISIONAL!!! Se debe calcular con método de raíces!!!
 
     //objeto de la clase
     ChargeDensityCalculator calculator(e, kB, T, mu);
