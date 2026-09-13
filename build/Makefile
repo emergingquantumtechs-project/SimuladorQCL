@@ -189,53 +189,29 @@ src/LaserQCL.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.s
 .PHONY : src/LaserQCL.cpp.s
 
-src/Material.obj: src/Material.cpp.obj
-.PHONY : src/Material.obj
+src/Materials.obj: src/Materials.cpp.obj
+.PHONY : src/Materials.obj
 
 # target to build an object file
-src/Material.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Material.cpp.obj
-.PHONY : src/Material.cpp.obj
+src/Materials.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj
+.PHONY : src/Materials.cpp.obj
 
-src/Material.i: src/Material.cpp.i
-.PHONY : src/Material.i
-
-# target to preprocess a source file
-src/Material.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Material.cpp.i
-.PHONY : src/Material.cpp.i
-
-src/Material.s: src/Material.cpp.s
-.PHONY : src/Material.s
-
-# target to generate assembly for a file
-src/Material.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Material.cpp.s
-.PHONY : src/Material.cpp.s
-
-src/MaterialManager.obj: src/MaterialManager.cpp.obj
-.PHONY : src/MaterialManager.obj
-
-# target to build an object file
-src/MaterialManager.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/MaterialManager.cpp.obj
-.PHONY : src/MaterialManager.cpp.obj
-
-src/MaterialManager.i: src/MaterialManager.cpp.i
-.PHONY : src/MaterialManager.i
+src/Materials.i: src/Materials.cpp.i
+.PHONY : src/Materials.i
 
 # target to preprocess a source file
-src/MaterialManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/MaterialManager.cpp.i
-.PHONY : src/MaterialManager.cpp.i
+src/Materials.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.i
+.PHONY : src/Materials.cpp.i
 
-src/MaterialManager.s: src/MaterialManager.cpp.s
-.PHONY : src/MaterialManager.s
+src/Materials.s: src/Materials.cpp.s
+.PHONY : src/Materials.s
 
 # target to generate assembly for a file
-src/MaterialManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/MaterialManager.cpp.s
-.PHONY : src/MaterialManager.cpp.s
+src/Materials.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.s
+.PHONY : src/Materials.cpp.s
 
 src/Methods/Leapfrog.obj: src/Methods/Leapfrog.cpp.obj
 .PHONY : src/Methods/Leapfrog.obj
@@ -328,12 +304,9 @@ help:
 	@echo ... src/LaserQCL.obj
 	@echo ... src/LaserQCL.i
 	@echo ... src/LaserQCL.s
-	@echo ... src/Material.obj
-	@echo ... src/Material.i
-	@echo ... src/Material.s
-	@echo ... src/MaterialManager.obj
-	@echo ... src/MaterialManager.i
-	@echo ... src/MaterialManager.s
+	@echo ... src/Materials.obj
+	@echo ... src/Materials.i
+	@echo ... src/Materials.s
 	@echo ... src/Methods/Leapfrog.obj
 	@echo ... src/Methods/Leapfrog.i
 	@echo ... src/Methods/Leapfrog.s

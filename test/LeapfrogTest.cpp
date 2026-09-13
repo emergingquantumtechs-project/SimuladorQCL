@@ -1,7 +1,18 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
+#include <functional>
 
-#include "../include/Methods/Leapfrog.hpp"
+namespace Methods {
+    std::vector<double> leapfrog(
+        double initialX,
+        double initialY,
+        double initialVelocity,
+        double stepSize,
+        double finalX,
+        std::function<double(double, double)> f
+    );
+}
 
 int main()
 {

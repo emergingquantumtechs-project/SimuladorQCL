@@ -9,8 +9,7 @@ add_executable(SimuladorQCL
     src/main.cpp
     src/LaserQCL.cpp
     src/CSVReader.cpp
-    src/Material.cpp
-    src/MaterialManager.cpp
+    src/Materials.cpp
     src/Methods/Leapfrog.cpp
 )
 

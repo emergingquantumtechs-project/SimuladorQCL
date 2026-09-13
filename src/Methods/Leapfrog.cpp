@@ -1,4 +1,17 @@
-#include "../../include/Methods/Leapfrog.hpp"
+#include <vector>
+#include <functional>
+
+namespace Methods
+{
+    std::vector<double> leapfrog(
+        double initialX,
+        double initialY,
+        double initialVelocity,
+        double stepSize,
+        double finalX,
+        std::function<double(double, double)> f
+    );
+}
 
 std::vector<double> Methods::leapfrog(
     double initialX,

@@ -1,1 +1,0 @@
-// ejecución de la simulación
