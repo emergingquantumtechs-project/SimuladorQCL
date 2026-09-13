@@ -8,12 +8,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(SimuladorQCL
     src/main.cpp
     src/LaserQCL.cpp
-    src/CSVReader.cpp
     src/Materials.cpp
-    src/Methods/Leapfrog.cpp
+    src/CSVReader.cpp
+    src/Schrodinger.cpp
+    src/Methods/Methods.cpp
 )
 
 add_executable(LeapfrogTest
     test/LeapfrogTest.cpp
-    src/Methods/Leapfrog.cpp
+    src/Methods/Methods.cpp
 )

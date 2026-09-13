@@ -1,11 +1,13 @@
-#include "../include/CSVReader.hpp"
-
 #include <fstream>
 #include <sstream>
+#include <string>
+#include <vector>
 
 using namespace std;
 
-vector<vector<string>> CSVReader::read(const string& filename)
+vector<vector<string>> readCSV(
+    const string& filename
+)
 {
     vector<vector<string>> data;
 

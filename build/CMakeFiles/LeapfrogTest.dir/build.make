@@ -85,30 +85,30 @@ CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\test\LeapfrogTest.cpp -o CMakeFiles\LeapfrogTest.dir\test\LeapfrogTest.cpp.s
 
-CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.obj: CMakeFiles/LeapfrogTest.dir/flags.make
-CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Methods/Leapfrog.cpp
-CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.obj: CMakeFiles/LeapfrogTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.obj -MF CMakeFiles\LeapfrogTest.dir\src\Methods\Leapfrog.cpp.obj.d -o CMakeFiles\LeapfrogTest.dir\src\Methods\Leapfrog.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Leapfrog.cpp
+CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj: CMakeFiles/LeapfrogTest.dir/flags.make
+CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Methods/Methods.cpp
+CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj: CMakeFiles/LeapfrogTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj -MF CMakeFiles\LeapfrogTest.dir\src\Methods\Methods.cpp.obj.d -o CMakeFiles\LeapfrogTest.dir\src\Methods\Methods.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp
 
-CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Leapfrog.cpp > CMakeFiles\LeapfrogTest.dir\src\Methods\Leapfrog.cpp.i
+CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp > CMakeFiles\LeapfrogTest.dir\src\Methods\Methods.cpp.i
 
-CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Leapfrog.cpp -o CMakeFiles\LeapfrogTest.dir\src\Methods\Leapfrog.cpp.s
+CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp -o CMakeFiles\LeapfrogTest.dir\src\Methods\Methods.cpp.s
 
 # Object files for target LeapfrogTest
 LeapfrogTest_OBJECTS = \
 "CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.obj" \
-"CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.obj"
+"CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj"
 
 # External object files for target LeapfrogTest
 LeapfrogTest_EXTERNAL_OBJECTS =
 
 LeapfrogTest.exe: CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.obj
-LeapfrogTest.exe: CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.obj
+LeapfrogTest.exe: CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj
 LeapfrogTest.exe: CMakeFiles/LeapfrogTest.dir/build.make
 LeapfrogTest.exe: CMakeFiles/LeapfrogTest.dir/linkLibs.rsp
 LeapfrogTest.exe: CMakeFiles/LeapfrogTest.dir/objects1.rsp

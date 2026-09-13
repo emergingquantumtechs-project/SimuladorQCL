@@ -1,49 +1,92 @@
-#include "../include/MaterialManager.hpp"
-#include "../include/CSVReader.hpp"
-
 #include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
 
-//carga y consulta de materiales
+using namespace std;
 
-void MaterialManager::load(const std::string& filename)
+struct Material
 {
-    CSVReader reader;
+    string name;
+    double effectiveMass;
+    double bandGap;
+    double dielectricConstant;
+};
 
-    auto data = reader.read(filename);
 
-    for (size_t i = 1; i < data.size(); i++)
+// Cargar los materiales desde un archivo CSV
+vector<Material> loadMaterials(const string& filename)
+{
+    vector<Material> materials;
+
+    ifstream file(filename);
+
+    if (!file.is_open())
     {
+        cerr << "Error: could not open materials file: "
+                  << filename << '\n';
+
+        return materials;
+    }
+
+    string line;
+
+    // Saltar encabezado
+    getline(file, line);
+
+    while (getline(file, line))
+    {
+        stringstream ss(line);
+        string value;
+
         Material material;
 
-        material.name = data[i][0];
-        material.effectiveMass = std::stod(data[i][1]);
-        material.bandGap = std::stod(data[i][2]);
-        material.dielectricConstant = std::stod(data[i][3]);
+        // Name
+        getline(ss, value, ',');
+        material.name = value;
+
+        // Effective mass
+        getline(ss, value, ',');
+        material.effectiveMass = stod(value);
+
+        // Band gap
+        getline(ss, value, ',');
+        material.bandGap = stod(value);
+
+        // Dielectric constant
+        getline(ss, value, ',');
+        material.dielectricConstant = stod(value);
 
         materials.push_back(material);
     }
+
+    return materials;
 }
 
-void MaterialManager::print() const
+void printMaterials(const vector<Material>& materials)
 {
-    std::cout << "Materials loaded:\n\n";
+    cout << "Materials loaded:\n\n";
 
     for (const Material& material : materials)
     {
-        std::cout << "- " << material.name << '\n';
+        cout << "- " << material.name << '\n';
 
-        std::cout << "  Effective mass: "
+        cout << "  Effective mass: "
                   << material.effectiveMass << '\n';
 
-        std::cout << "  Band gap: "
+        cout << "  Band gap: "
                   << material.bandGap << " eV\n";
 
-        std::cout << "  Dielectric constant: "
+        cout << "  Dielectric constant: "
                   << material.dielectricConstant << "\n\n";
     }
 }
 
-Material MaterialManager::get(const std::string& name) const
+Material getMaterial(
+    const vector<Material>& materials,
+    const string& name
+)
 {
     for (const Material& material : materials)
     {
@@ -53,5 +96,6 @@ Material MaterialManager::get(const std::string& name) const
         }
     }
 
+    // Material vacío si no se encuentra
     return Material{};
 }

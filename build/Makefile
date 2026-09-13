@@ -213,32 +213,56 @@ src/Materials.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.s
 .PHONY : src/Materials.cpp.s
 
-src/Methods/Leapfrog.obj: src/Methods/Leapfrog.cpp.obj
-.PHONY : src/Methods/Leapfrog.obj
+src/Methods/Methods.obj: src/Methods/Methods.cpp.obj
+.PHONY : src/Methods/Methods.obj
 
 # target to build an object file
-src/Methods/Leapfrog.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.obj
-.PHONY : src/Methods/Leapfrog.cpp.obj
+src/Methods/Methods.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj
+.PHONY : src/Methods/Methods.cpp.obj
 
-src/Methods/Leapfrog.i: src/Methods/Leapfrog.cpp.i
-.PHONY : src/Methods/Leapfrog.i
+src/Methods/Methods.i: src/Methods/Methods.cpp.i
+.PHONY : src/Methods/Methods.i
 
 # target to preprocess a source file
-src/Methods/Leapfrog.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.i
-.PHONY : src/Methods/Leapfrog.cpp.i
+src/Methods/Methods.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.i
+.PHONY : src/Methods/Methods.cpp.i
 
-src/Methods/Leapfrog.s: src/Methods/Leapfrog.cpp.s
-.PHONY : src/Methods/Leapfrog.s
+src/Methods/Methods.s: src/Methods/Methods.cpp.s
+.PHONY : src/Methods/Methods.s
 
 # target to generate assembly for a file
-src/Methods/Leapfrog.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Leapfrog.cpp.s
-.PHONY : src/Methods/Leapfrog.cpp.s
+src/Methods/Methods.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.s
+.PHONY : src/Methods/Methods.cpp.s
+
+src/Schrodinger.obj: src/Schrodinger.cpp.obj
+.PHONY : src/Schrodinger.obj
+
+# target to build an object file
+src/Schrodinger.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj
+.PHONY : src/Schrodinger.cpp.obj
+
+src/Schrodinger.i: src/Schrodinger.cpp.i
+.PHONY : src/Schrodinger.i
+
+# target to preprocess a source file
+src/Schrodinger.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.i
+.PHONY : src/Schrodinger.cpp.i
+
+src/Schrodinger.s: src/Schrodinger.cpp.s
+.PHONY : src/Schrodinger.s
+
+# target to generate assembly for a file
+src/Schrodinger.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.s
+.PHONY : src/Schrodinger.cpp.s
 
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
@@ -307,9 +331,12 @@ help:
 	@echo ... src/Materials.obj
 	@echo ... src/Materials.i
 	@echo ... src/Materials.s
-	@echo ... src/Methods/Leapfrog.obj
-	@echo ... src/Methods/Leapfrog.i
-	@echo ... src/Methods/Leapfrog.s
+	@echo ... src/Methods/Methods.obj
+	@echo ... src/Methods/Methods.i
+	@echo ... src/Methods/Methods.s
+	@echo ... src/Schrodinger.obj
+	@echo ... src/Schrodinger.i
+	@echo ... src/Schrodinger.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

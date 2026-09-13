@@ -99,24 +99,10 @@ CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\LaserQCL.cpp -o CMakeFiles\SimuladorQCL.dir\src\LaserQCL.cpp.s
 
-CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
-CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/CSVReader.cpp
-CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\CSVReader.cpp
-
-CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\CSVReader.cpp > CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.i
-
-CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\CSVReader.cpp -o CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.s
-
 CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
 CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Materials.cpp
 CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\Materials.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\Materials.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Materials.cpp
 
 CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.i: cmake_force
@@ -127,41 +113,71 @@ CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Materials.cpp -o CMakeFiles\SimuladorQCL.dir\src\Materials.cpp.s
 
-CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
-CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Methods/Leapfrog.cpp
-CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\Methods\Leapfrog.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\Methods\Leapfrog.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Leapfrog.cpp
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/CSVReader.cpp
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\CSVReader.cpp
 
-CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Leapfrog.cpp > CMakeFiles\SimuladorQCL.dir\src\Methods\Leapfrog.cpp.i
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\CSVReader.cpp > CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.i
 
-CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Leapfrog.cpp -o CMakeFiles\SimuladorQCL.dir\src\Methods\Leapfrog.cpp.s
+CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\CSVReader.cpp -o CMakeFiles\SimuladorQCL.dir\src\CSVReader.cpp.s
+
+CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
+CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Schrodinger.cpp
+CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\Schrodinger.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\Schrodinger.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Schrodinger.cpp
+
+CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Schrodinger.cpp > CMakeFiles\SimuladorQCL.dir\src\Schrodinger.cpp.i
+
+CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Schrodinger.cpp -o CMakeFiles\SimuladorQCL.dir\src\Schrodinger.cpp.s
+
+CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
+CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Methods/Methods.cpp
+CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\Methods\Methods.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\Methods\Methods.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp
+
+CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp > CMakeFiles\SimuladorQCL.dir\src\Methods\Methods.cpp.i
+
+CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp -o CMakeFiles\SimuladorQCL.dir\src\Methods\Methods.cpp.s
 
 # Object files for target SimuladorQCL
 SimuladorQCL_OBJECTS = \
 "CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj" \
 "CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.obj" \
-"CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj" \
 "CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj" \
-"CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj"
+"CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj" \
+"CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj" \
+"CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj"
 
 # External object files for target SimuladorQCL
 SimuladorQCL_EXTERNAL_OBJECTS =
 
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.obj
-SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj
-SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/Methods/Leapfrog.cpp.obj
+SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj
+SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj
+SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/build.make
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/linkLibs.rsp
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/objects1.rsp
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable SimuladorQCL.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SimuladorQCL.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\SimuladorQCL.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

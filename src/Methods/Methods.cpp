@@ -1,30 +1,24 @@
 #include <vector>
 #include <functional>
 
-namespace Methods
-{
-    std::vector<double> leapfrog(
-        double initialX,
-        double initialY,
-        double initialVelocity,
-        double stepSize,
-        double finalX,
-        std::function<double(double, double)> f
-    );
-}
+using namespace std;
 
-std::vector<double> Methods::leapfrog(
+//********************************************/
+//                *Leapfrog*
+//********************************************/
+
+vector<double> leapfrog(
     double initialX,
     double initialY,
     double initialVelocity,
     double stepSize,
     double finalX,
-    std::function<double(double, double)> f
+    function<double(double, double)> f
 )
 {
     int steps = static_cast<int>((finalX - initialX) / stepSize);
 
-    std::vector<double> y(steps + 1);
+    vector<double> y(steps + 1);
 
     y[0] = initialY;
 

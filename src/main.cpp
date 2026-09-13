@@ -1,10 +1,10 @@
-#include "../include/LaserQCL.hpp"
+#include <iostream>
+
+void runLaserQCL();
 
 int main()
 {
-    LaserQCL laser;
-
-    laser.run();
+    runLaserQCL();
 
     return 0;
 }
