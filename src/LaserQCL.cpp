@@ -145,28 +145,20 @@ void runLaserQCL()
         dx
     );
 
-    cout << "Layers loaded: "
-              << layers.size() << '\n';
+    cout << "Layers loaded: " << layers.size() << '\n';
 
-    cout << "Grid points: "
-              << x.size() << '\n';
+    cout << "Grid points: " << x.size() << '\n';
 
-    cout << "Structure length: "
-              << x.back() * 1e9
-              << " nm\n\n";
+    cout << "Structure length: " << x.back() * 1e9 << " nm\n\n";
 
     // Preliminary parameters
-    const double electronMass =
-        9.10938188e-31;
+    const double electronMass = 9.10938188e-31;
 
-    const double effectiveMass =
-        0.067 * electronMass;
+    const double effectiveMass = 0.067 * electronMass;
 
-    const double hbar =
-        1.05457168e-34;
+    const double hbar = 1.05457168e-34;
 
-    const double energy =
-        0.10 * 1.60217646e-19;
+    const double energy = 0.10 * 1.60217646e-19;
 
     auto wavefunction = solveSchrodinger(
         x,
@@ -190,12 +182,7 @@ void runLaserQCL()
 
     for (size_t i = 0; i < x.size(); i++)
     {
-        output
-            << x[i] * 1e9 << ","
-            << potential[i] /
-               1.60217646e-19 << ","
-            << wavefunction[i]
-            << '\n';
+        output << x[i] * 1e9 << "," << potential[i] / 1.60217646e-19 << "," << wavefunction[i] << '\n';
     }
 
     output.close();

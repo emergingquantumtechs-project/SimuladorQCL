@@ -141,6 +141,19 @@ LeapfrogTest/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/build
 .PHONY : LeapfrogTest/fast
 
+#=============================================================================
+# Target rules for targets named NumerovTest
+
+# Build rule for target.
+NumerovTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 NumerovTest
+.PHONY : NumerovTest
+
+# fast build rule for target.
+NumerovTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/build
+.PHONY : NumerovTest/fast
+
 src/CSVReader.obj: src/CSVReader.cpp.obj
 .PHONY : src/CSVReader.obj
 
@@ -220,6 +233,7 @@ src/Methods/Methods.obj: src/Methods/Methods.cpp.obj
 src/Methods/Methods.cpp.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj
 .PHONY : src/Methods/Methods.cpp.obj
 
 src/Methods/Methods.i: src/Methods/Methods.cpp.i
@@ -229,6 +243,7 @@ src/Methods/Methods.i: src/Methods/Methods.cpp.i
 src/Methods/Methods.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.i
 .PHONY : src/Methods/Methods.cpp.i
 
 src/Methods/Methods.s: src/Methods/Methods.cpp.s
@@ -238,6 +253,7 @@ src/Methods/Methods.s: src/Methods/Methods.cpp.s
 src/Methods/Methods.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.s
 .PHONY : src/Methods/Methods.cpp.s
 
 src/Schrodinger.obj: src/Schrodinger.cpp.obj
@@ -312,6 +328,30 @@ test/LeapfrogTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.s
 .PHONY : test/LeapfrogTest.cpp.s
 
+test/NumerovTest.obj: test/NumerovTest.cpp.obj
+.PHONY : test/NumerovTest.obj
+
+# target to build an object file
+test/NumerovTest.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.obj
+.PHONY : test/NumerovTest.cpp.obj
+
+test/NumerovTest.i: test/NumerovTest.cpp.i
+.PHONY : test/NumerovTest.i
+
+# target to preprocess a source file
+test/NumerovTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.i
+.PHONY : test/NumerovTest.cpp.i
+
+test/NumerovTest.s: test/NumerovTest.cpp.s
+.PHONY : test/NumerovTest.s
+
+# target to generate assembly for a file
+test/NumerovTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.s
+.PHONY : test/NumerovTest.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -321,6 +361,7 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... LeapfrogTest
+	@echo ... NumerovTest
 	@echo ... SimuladorQCL
 	@echo ... src/CSVReader.obj
 	@echo ... src/CSVReader.i
@@ -343,6 +384,9 @@ help:
 	@echo ... test/LeapfrogTest.obj
 	@echo ... test/LeapfrogTest.i
 	@echo ... test/LeapfrogTest.s
+	@echo ... test/NumerovTest.obj
+	@echo ... test/NumerovTest.i
+	@echo ... test/NumerovTest.s
 .PHONY : help
 
 
