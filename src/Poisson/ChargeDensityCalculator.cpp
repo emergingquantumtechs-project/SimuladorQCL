@@ -121,16 +121,17 @@ public:
     }
 
     //***Calcular Densidad de Carga rho(z)***
-    //Calcula rho(z) = e * [ Nd(z) - sum( ni * |psi_i(z)|^2 )]
+    //Calcula  rho(z) = e * [Nd(z) - n(z)]
     //Donde:
     //rho(z): densidad de carga
-    //Nd(z): densidad de dopaje
-    //ni: densidad superficial de cada subbanda
-    //psi_i(z): función de onda de cada subbanda
-    //Devuelve un vector con la densidad de carga rho(z) en cada punto del mallado espacial
-    //La densidad de carga es positiva para cargas positivas y negativa para cargas negativas
-    //La densidad de carga considera la contribución positiva
-    //de los donadores y la contribución negativa de los electrones.
+    //Nd(z): densidad de dopaje o densidad de donadores
+    //n(z): densidad electronica
+    //e: carga elemental
+    
+    //Devuelve un vector con la densidad de carga rho(z) 
+    //en cada punto del mallado espacial
+    // La contribucion de los donadores es positiva
+    // y la contribucion de los electrones es negativa.
 
      vector<double> CalculateChargeDensity(
         const vector<double>& electronDensity,
