@@ -18,3 +18,8 @@ add_executable(LeapfrogTest
     test/LeapfrogTest.cpp
     src/Methods/Methods.cpp
 )
+
+add_executable(NumerovTest
+    test/NumerovTest.cpp
+    src/Methods/Methods.cpp
+)
