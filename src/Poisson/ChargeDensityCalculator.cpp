@@ -1,14 +1,14 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
 #include <vector>
 #include <cmath>
 
 using namespace std;
 
+//***ChargeDensityCalculator***
+// Clase para cálculos relacionados con la densidad de carga
+// Contiene métodos para calcular la ocupación de Fermi-Dirac y calcular la densidad de carga rho(z) 
+// a partir de funciones de onda y densidades superficiales
+
 class ChargeDensityCalculator{
-//para cálculos relacionados con la densidad de carga
 private:
     double electron_Charge;
     double boltzmann_Constant;
@@ -16,7 +16,7 @@ private:
     double chemical_Potential;
 
 public:
-    //cons
+    //Constantes físicas
     ChargeDensityCalculator(
         double charge,
         double kB,
@@ -29,143 +29,97 @@ public:
           chemical_Potential(chemicalPotencial){
     }
 
-    // ocupacion f(E) de cada subbanda
+    //***CalculateFermiDirac***
+    // Calcula la ocupación de Fermi-Dirac f(E) para un vector de energías dado
+    // f(E) = 1 / (1 + exp((E - mu) / (kB * T)))
+    // E y mu se expresan en eV y se convierten a joules
+    // mediante la carga elemental antes de dividir entre kB*T.
+    
+    // Donde:
+    // E: energía de la subbanda
+    // mu: potencial químico (POR CALCULAR CON MÉTODO DE RAÍCES)
+    // kB: constante de Boltzmann
+    // T: temperatura
+    // Devuelve un vector con la ocupación correspondiente a cada energía
+    // Ocupacion f(E) de cada subbanda
+
     vector<double> CalculateFermiDirac(vector<double> energies){
         vector<double> occupation(energies.size());
 
         for (int i = 0; i < energies.size(); i++){
             occupation[i] = 1.0 / (1.0 + exp(((energies[i]-chemical_Potential)*electron_Charge)/(boltzmann_Constant*temperature)));
         }
+
+        //Si E_i << mu, la ocupación se acerca a 1.
+        //Si E_i >> mu , se acerca a 0.
+        //Si E_i = mu, es aproximadamente 0.5.
+
         return occupation;
+
+        
     }
 
-    // Normaliza una funcion de onda: integral |psi|^2 dz = 1
-    vector<double> Normalizar(vector<double> psi, double dz){
-        double norma = 0.0;
-        int n = psi.size();
+    //***Calcular Densidad Electronica 
+    //recibe wavefunctions, subband_densities y z
 
-        //1.calcular la suma cuadrada discretizada
-        for (int i = 0; i < n; i++) {
-            norma = norma + (psi[i]*psi[i]*dz);
-        }
-        norma = sqrt(norma);
+    //Calcula   n(z) = SUM [ n_i |psi_i(z)|² ]
+    //Donde:
+    //n(z): densidad electronica
+    //n_i: densidad superficial de cada subbanda
+    //psi_i(z): función de onda de cada subbanda
+    //z: mallado espacial
+    //Devuelve un vector con la densidad electronica n(z) en cada punto del mallado espacial
 
-        // 2.dividir cada elemento entre la norma total
-        vector<double> psi_normalizada(n);
-        if (norma > 0.0){
-            for (int i = 0; i < n; i++){
-                psi_normalizada[i] = psi[i] / norma;
-            }
-        }
-        return psi_normalizada;
-    }
+    vector<double> CalculateElectronDensity(
+        const vector<vector<double>>& wavefunctions, //ψ1(z), ψ2(z), ψ3(z), ...
+        const vector<double> subband_densities, //n1, n2, n3, ...
+        const vector<double>& z) //mallado espacial z0​, z1​, z2​, ...
+    {
+        size_t gridSize = z.size(); //n(z) 
+        
+        vector<double> electronDensity(gridSize, 0.0); //inicializar densidad electronica n(z) a cero
 
-    //calcularDensidad
-    //Calcula rho(z) = e * [ Nd(z) - sum( ni * |psi_i(z)|^2 ) ]
-    vector<double> CalcularDensidad(
-        vector<vector<double>> wavefunctions, 
-        vector<double> subband_densities, 
-        vector<double> Nd, 
-        double dz
-    ) {
-        int grid_size = Nd.size();
-        vector<double> n_electronico(grid_size, 0.0);
-        vector<double> rho(grid_size, 0.0);
+        //***Sumar la contribución de cada subbanda.
+        //recorrer las funciones de onda
+        for (size_t i = 0; i < wavefunctions.size(); i++){
 
-        //1.sumar la contribucion electronica de cada subbanda normalizada
-        for (int i = 0; i < wavefunctions.size(); i++){
-            vector<double> psi_norm = Normalizar(wavefunctions[i], dz);
             double ni = subband_densities[i];
 
-            for (int j = 0; j < grid_size; j++){
-                n_electronico[j] = n_electronico[j] + (ni * psi_norm[j] * psi_norm[j]);
+            for (size_t j = 0; j < gridSize; j++) {
+
+                electronDensity[j] += ni * wavefunctions[i][j] * wavefunctions[i][j];
             }
         }
 
-        //2.calcular la densidad de carga neta rho(z)
-        for (int j = 0; j < grid_size; j++){
-            rho[j] = electron_Charge * (Nd[j] - n_electronico[j]);
+        return electronDensity;
+    }
+
+    //***Calcular Densidad de Carga rho(z)***
+    //Calcula rho(z) = e * [ Nd(z) - sum( ni * |psi_i(z)|^2 )]
+    //Donde:
+    //rho(z): densidad de carga
+    //Nd(z): densidad de dopaje
+    //ni: densidad superficial de cada subbanda
+    //psi_i(z): función de onda de cada subbanda
+    //dz: paso de mallado espacial
+    //z: mallado espacial
+    //Devuelve un vector con la densidad de carga rho(z) en cada punto del mallado espacial
+    //La densidad de carga es positiva para cargas positivas y negativa para cargas negativas
+    //La densidad de carga considera la contribución positiva
+    //de los donadores y la contribución negativa de los electrones.
+
+     vector<double> CalculateChargeDensity(
+        const vector<double>& electronDensity,
+        const vector<double>& donorDensity){
+
+        size_t gridSize = donorDensity.size();
+
+        vector<double> chargeDensity(gridSize,0.0);
+
+        for (size_t j = 0; j < gridSize; j++){
+            chargeDensity[j] = electron_Charge * (donorDensity[j] - electronDensity[j]);
         }
-        return rho;
+
+        return chargeDensity;
     }
 };
-
-
-// lectura de constantesusando la clase CSVReader
-double ReadConstant(string FindConstant){
-    CSVReader reader;
-    vector<vector<string>> data = reader.read("../../data/universal_constants.csv");
-
-    if (data.empty()){
-        cout << "error: no se pudo abrir el archivo .csv o está vacío" << endl;
-        return 0.0;
-    }
-
-    //en 1 para saltarse el header
-    for (int i = 1; i < data.size(); i++){
-        if (data[i].size() >= 3) {
-            string constantName = data[i][0]; 
-            string value = data[i][2];        
-
-            if (constantName == FindConstant){
-                return stod(value);
-            }
-        }
-    }
-
-    cout << "Constant not found: " << FindConstant << endl;
-    return 0.0;
-}
-
-int main(){
-    
-    //constantes fisicas
-    double boltzmannConstant = ReadConstant("boltzmann_constant");
-    double h  = ReadConstant("planck_constant");
-    double hbar = ReadConstant("reduced_planck_constant");
-    double e = 1.60217646e-19;
-    double kB = 1.3806503e-23;
-    double T = 300;
-    double mu = 0.1; // en eV PROVISIONAL!!! Se debe calcular con método de raíces!!!
-
-    //objeto de la clase
-    ChargeDensityCalculator calculator(e, kB, T, mu);
-
-    //Fermi-Dirac
-    vector<double> energies = {0.05, 0.1, 0.15}; //energias de prueba en eV
-    vector<double> results = calculator.CalculateFermiDirac(energies);
-
-    cout << "Resultados de Fermi-Dirac" << endl;
-    for (int i = 0; i < results.size(); i++) {
-        cout << "Energia: " << energies[i] << " eV -> Ocupacion: " << results[i] << endl;
-    }
-
-    //mallado espacial z
-    int N = 100;
-    double dz = 1.0e-9; // 1 nm en metros
-    double ns_total = 1.0e16; //densidad superficial de prueba (1/m^2)
-
-    //dopaje (uniforme, Nd(z))
-    vector<double> Nd(N, ns_total / (N * dz));
-
-    vector<double> psi1(N), psi2(N), psi3(N);
-    for (int j = 0; j < N; j++) {
-        psi1[j] = sin(1.0 * 3.14159265 * j / (N - 1));
-        psi2[j] = sin(2.0 * 3.14159265 * j / (N - 1));
-        psi3[j] = sin(3.0 * 3.14159265 * j / (N - 1));
-    }
-    vector<vector<double>> wavefunctions = {psi1, psi2, psi3};
-
-    //poblaciones superficiales proporcionales a la ocupacion
-    vector<double> subband_densities = {results[0] * 1e15, results[1] * 1e15, results[2] * 1e15};
-
-    //calculo densidad de carga rho(z)
-    vector<double> rho = calculator.CalcularDensidad(wavefunctions, subband_densities, Nd, dz);
-
-    cout << "\ndensidad de carga rho(z) - prueba" << endl;
-    cout << "rho en el borde (z = 0): " << rho[0] << " C/m^3" << endl;
-    cout << "rho en el centro (z = " << N / 2 << "): " << rho[N / 2] << " C/m^3" << endl;
-    cout << "rho en el otro borde (z = " << N - 1 << "): " << rho[N - 1] << " C/m^3" << endl;
-
-    return 0;
-}

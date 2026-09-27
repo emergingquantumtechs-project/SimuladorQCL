@@ -4,7 +4,7 @@
 using namespace std;
 
 //********************************************/
-//                *Leapfrog*
+//*               *Leapfrog*                 *
 //********************************************/
 
 vector<double> leapfrog(

@@ -1,0 +1,2 @@
+//coordinar la iteración autoconsistente.
+//
