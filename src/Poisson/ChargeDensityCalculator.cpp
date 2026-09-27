@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <numbers>
 
 using namespace std;
 
@@ -8,6 +9,7 @@ using namespace std;
 // Contiene métodos para calcular la ocupación de Fermi-Dirac y calcular la densidad de carga rho(z) 
 // a partir de funciones de onda y densidades superficiales
 
+
 class ChargeDensityCalculator{
 private:
     double electron_Charge;
@@ -15,26 +17,50 @@ private:
     double temperature;
     double chemical_Potential;
 
+    double effective_Mass;
+    double hbar;
+
 public:
     //Constantes físicas
     ChargeDensityCalculator(
         double charge,
         double kB,
         double temp,
-        double chemicalPotencial
+        double effectiveMass,
+        double hbarValue
     )
         : electron_Charge(charge),
           boltzmann_Constant(kB),
           temperature(temp),
-          chemical_Potential(chemicalPotencial){
+          chemical_Potential(0.0), //provisional
+          effective_Mass(effectiveMass),
+          hbar(hbarValue)
     }
+
+    //***CalculateDensityOfStates***
+    // Calcula la densidad de estados para las subbandas
+    // cuantizadas en la dirección de crecimiento.
+    // D₂D = m* / (π ħ²)
+    // Donde:
+    // m*: masa efectiva
+    // ħ: constante de Planck reducida
+    // Si la energía se expresa en joules, D₂D tiene unidades de 1/(J·m²).
+
+    double CalculateDensityOfStates()
+{
+    double pi = numbers::pi;
+    double hbarSquared = hbar * hbar;
+    double densityOfStates = effective_Mass / (pi * hbarSquared);
+
+    return densityOfStates;
+}
 
     //***CalculateFermiDirac***
     // Calcula la ocupación de Fermi-Dirac f(E) para un vector de energías dado
     // f(E) = 1 / (1 + exp((E - mu) / (kB * T)))
     // E y mu se expresan en eV y se convierten a joules
     // mediante la carga elemental antes de dividir entre kB*T.
-    
+
     // Donde:
     // E: energía de la subbanda
     // mu: potencial químico (POR CALCULAR CON MÉTODO DE RAÍCES)
