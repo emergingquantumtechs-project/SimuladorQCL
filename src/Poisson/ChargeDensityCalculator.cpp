@@ -35,7 +35,7 @@ public:
           chemical_Potential(0.0), //provisional
           effective_Mass(effectiveMass),
           hbar(hbarValue)
-    }
+    };
 
     //***CalculateDensityOfStates***
     // Calcula la densidad de estados para las subbandas
@@ -98,7 +98,7 @@ public:
 
     vector<double> CalculateElectronDensity(
         const vector<vector<double>>& wavefunctions, //ψ1(z), ψ2(z), ψ3(z), ...
-        const vector<double> subband_densities, //n1, n2, n3, ...
+        const vector<double>& subband_densities, //n1, n2, n3, ...
         const vector<double>& z) //mallado espacial z0​, z1​, z2​, ...
     {
         size_t gridSize = z.size(); //n(z) 
@@ -127,8 +127,6 @@ public:
     //Nd(z): densidad de dopaje
     //ni: densidad superficial de cada subbanda
     //psi_i(z): función de onda de cada subbanda
-    //dz: paso de mallado espacial
-    //z: mallado espacial
     //Devuelve un vector con la densidad de carga rho(z) en cada punto del mallado espacial
     //La densidad de carga es positiva para cargas positivas y negativa para cargas negativas
     //La densidad de carga considera la contribución positiva
