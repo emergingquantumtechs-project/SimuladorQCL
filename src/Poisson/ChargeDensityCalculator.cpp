@@ -16,7 +16,6 @@ private:
     double boltzmann_Constant;
     double temperature;
     double chemical_Potential;
-
     double effective_Mass;
     double hbar;
 
@@ -40,21 +39,15 @@ public:
     //***CalculateDensityOfStates***
     // Calcula la densidad de estados para las subbandas
     // cuantizadas en la dirección de crecimiento.
-    // D₂D = m* / (π ħ²)
+    // Densidad de estados = m* / (π ħ²)
     // Donde:
     // m*: masa efectiva
     // ħ: constante de Planck reducida
-    // Si la energía se expresa en joules, D₂D tiene unidades de 1/(J·m²).
 
     double CalculateDensityOfStates()
 {
-    double pi = numbers::pi;
-    double hbarSquared = hbar * hbar;
-    double densityOfStates = effective_Mass / (pi * hbarSquared);
-
-    return densityOfStates;
+    return effective_Mass / (numbers::pi * hbar * hbar);
 }
-
     //***CalculateFermiDirac***
     // Calcula la ocupación de Fermi-Dirac f(E) para un vector de energías dado
     // f(E) = 1 / (1 + exp((E - mu) / (kB * T)))

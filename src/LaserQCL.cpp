@@ -24,6 +24,7 @@ vector<double> solveSchrodinger(
     double hbar
 );
 
+
 vector<Layer> loadStructure(
     const string& filename
 )
