@@ -34,7 +34,9 @@ public:
           chemical_Potential(0.0), //provisional
           effective_Mass(effectiveMass),
           hbar(hbarValue)
-    };
+    {
+        
+    }
 
     //***CalculateDensityOfStates***
     // Calcula la densidad de estados para las subbandas
