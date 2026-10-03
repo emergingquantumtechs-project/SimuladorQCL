@@ -141,19 +141,19 @@ CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Schrodinger.cpp -o CMakeFiles\SimuladorQCL.dir\src\Schrodinger.cpp.s
 
-CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
-CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Methods/Methods.cpp
-CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\Methods\Methods.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\Methods\Methods.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp
+CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.obj: CMakeFiles/SimuladorQCL.dir/flags.make
+CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Methods.cpp
+CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.obj: CMakeFiles/SimuladorQCL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.obj -MF CMakeFiles\SimuladorQCL.dir\src\Methods.cpp.obj.d -o CMakeFiles\SimuladorQCL.dir\src\Methods.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods.cpp
 
-CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp > CMakeFiles\SimuladorQCL.dir\src\Methods\Methods.cpp.i
+CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods.cpp > CMakeFiles\SimuladorQCL.dir\src\Methods.cpp.i
 
-CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp -o CMakeFiles\SimuladorQCL.dir\src\Methods\Methods.cpp.s
+CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods.cpp -o CMakeFiles\SimuladorQCL.dir\src\Methods.cpp.s
 
 # Object files for target SimuladorQCL
 SimuladorQCL_OBJECTS = \
@@ -162,7 +162,7 @@ SimuladorQCL_OBJECTS = \
 "CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj" \
 "CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj" \
 "CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj" \
-"CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj"
+"CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.obj"
 
 # External object files for target SimuladorQCL
 SimuladorQCL_EXTERNAL_OBJECTS =
@@ -172,7 +172,7 @@ SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.obj
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj
-SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj
+SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/src/Methods.cpp.obj
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/build.make
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/linkLibs.rsp
 SimuladorQCL.exe: CMakeFiles/SimuladorQCL.dir/objects1.rsp

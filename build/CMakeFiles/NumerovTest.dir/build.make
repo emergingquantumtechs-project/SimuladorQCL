@@ -85,30 +85,30 @@ CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.s"
 	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\test\NumerovTest.cpp -o CMakeFiles\NumerovTest.dir\test\NumerovTest.cpp.s
 
-CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj: CMakeFiles/NumerovTest.dir/flags.make
-CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Methods/Methods.cpp
-CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj: CMakeFiles/NumerovTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj -MF CMakeFiles\NumerovTest.dir\src\Methods\Methods.cpp.obj.d -o CMakeFiles\NumerovTest.dir\src\Methods\Methods.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp
+CMakeFiles/NumerovTest.dir/src/Methods.cpp.obj: CMakeFiles/NumerovTest.dir/flags.make
+CMakeFiles/NumerovTest.dir/src/Methods.cpp.obj: E:/Tesis/SimuladorQCL/SimuladorQCL/src/Methods.cpp
+CMakeFiles/NumerovTest.dir/src/Methods.cpp.obj: CMakeFiles/NumerovTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Tesis\SimuladorQCL\SimuladorQCL\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NumerovTest.dir/src/Methods.cpp.obj"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/NumerovTest.dir/src/Methods.cpp.obj -MF CMakeFiles\NumerovTest.dir\src\Methods.cpp.obj.d -o CMakeFiles\NumerovTest.dir\src\Methods.cpp.obj -c E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods.cpp
 
-CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.i"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp > CMakeFiles\NumerovTest.dir\src\Methods\Methods.cpp.i
+CMakeFiles/NumerovTest.dir/src/Methods.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/NumerovTest.dir/src/Methods.cpp.i"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods.cpp > CMakeFiles\NumerovTest.dir\src\Methods.cpp.i
 
-CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.s"
-	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods\Methods.cpp -o CMakeFiles\NumerovTest.dir\src\Methods\Methods.cpp.s
+CMakeFiles/NumerovTest.dir/src/Methods.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/NumerovTest.dir/src/Methods.cpp.s"
+	C:\msys64\ucrt64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Tesis\SimuladorQCL\SimuladorQCL\src\Methods.cpp -o CMakeFiles\NumerovTest.dir\src\Methods.cpp.s
 
 # Object files for target NumerovTest
 NumerovTest_OBJECTS = \
 "CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.obj" \
-"CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj"
+"CMakeFiles/NumerovTest.dir/src/Methods.cpp.obj"
 
 # External object files for target NumerovTest
 NumerovTest_EXTERNAL_OBJECTS =
 
 NumerovTest.exe: CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.obj
-NumerovTest.exe: CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj
+NumerovTest.exe: CMakeFiles/NumerovTest.dir/src/Methods.cpp.obj
 NumerovTest.exe: CMakeFiles/NumerovTest.dir/build.make
 NumerovTest.exe: CMakeFiles/NumerovTest.dir/linkLibs.rsp
 NumerovTest.exe: CMakeFiles/NumerovTest.dir/objects1.rsp

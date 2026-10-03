@@ -5,6 +5,42 @@
 using namespace std;
 
 //********************************************/
+//*               *Euler*                 *
+//********************************************/
+
+vector<double> euler(
+    double initialX,
+    double initialY,
+    double initialDerivative,
+    double stepSize,
+    double finalX,
+    function<double(double, double)> equation
+){
+
+    int steps = static_cast<int>((finalX - initialX) / stepSize);
+
+    vector<double> y(steps + 1);
+
+    y[0] = initialY;
+
+    double derivative = initialDerivative;
+    double x = initialX;
+
+    for (int i = 0; i < steps; i++){
+
+        double secondDerivative = equation(x, y[i]);
+
+        y[i + 1] = y[i] +  stepSize * derivative;
+
+        derivative += stepSize * secondDerivative;
+
+        x += stepSize;
+    }
+
+    return y;
+}
+
+//********************************************/
 //*               *Leapfrog*                 *
 //********************************************/
 
@@ -15,8 +51,8 @@ vector<double> leapfrog(
     double stepSize,
     double finalX,
     function<double(double, double)> f
-)
-{
+){
+
     int steps = static_cast<int>((finalX - initialX) / stepSize);
 
     vector<double> y(steps + 1);
@@ -35,6 +71,7 @@ vector<double> leapfrog(
         x += stepSize;
 
         velocity += stepSize * f(x, y[i + 1]);
+
     }
 
     return y;
@@ -51,10 +88,8 @@ vector<double> numerov(
     double stepSize,
     double finalX,
     function<double(double)> f
-)
-{
-    int steps = static_cast<int>((finalX - initialX) / stepSize
-    );
+){
+    int steps = static_cast<int>((finalX - initialX) / stepSize);
 
     vector<double> y(steps + 1);
 
@@ -64,18 +99,22 @@ vector<double> numerov(
     for (int i = 1; i < steps; i++){
 
         double xPrevious = initialX + (i - 1) * stepSize;
-        double xCurrent  = initialX + i * stepSize;
-        double xNext     = initialX + (i + 1) * stepSize;
+
+        double xCurrent = initialX + i * stepSize;
+
+        double xNext = initialX + (i + 1) * stepSize;
 
         double fPrevious = f(xPrevious);
-        double fCurrent  = f(xCurrent);
-        double fNext     = f(xNext);
 
-        double numerator = 2.0 * (1.0 + (stepSize * stepSize / 12.0) * fCurrent) * y[i] - (1.0 - (stepSize * stepSize / 12.0) * fPrevious) * y[i - 1];
+        double fCurrent = f(xCurrent);
+
+        double fNext = f(xNext);
+
+        double numerator = 2.0 * (1.0 + (5.0 * stepSize * stepSize / 12.0) * fCurrent) * y[i] - (1.0 - (stepSize * stepSize / 12.0) * fPrevious) * y[i - 1];
+
         double denominator = 1.0 - (stepSize * stepSize / 12.0) * fNext;
 
         y[i + 1] = numerator / denominator;
-
     }
 
     return y;

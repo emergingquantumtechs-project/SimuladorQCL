@@ -5,21 +5,8 @@ project(SimuladorQCL)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(SimuladorQCL
-    src/main.cpp
-    src/LaserQCL.cpp
-    src/Materials.cpp
-    src/CSVReader.cpp
+add_executable(SchrodingerTest
+    test/SchrodingerTest.cpp
     src/Schrodinger.cpp
-    src/Methods/Methods.cpp
-)
-
-add_executable(LeapfrogTest
-    test/LeapfrogTest.cpp
-    src/Methods/Methods.cpp
-)
-
-add_executable(NumerovTest
-    test/NumerovTest.cpp
-    src/Methods/Methods.cpp
+    src/Methods.cpp
 )

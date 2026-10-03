@@ -1,9 +1,122 @@
 #include <vector>
 #include <functional>
+#include <cmath>
 
 using namespace std;
 
-vector<double> solveSchrodinger(
+vector<double> euler(
+    double initialX,
+    double initialY,
+    double initialDerivative,
+    double stepSize,
+    double finalX,
+    function<double(double, double)> equation
+);
+
+vector<double> leapfrog(
+    double initialX,
+    double initialY,
+    double initialVelocity,
+    double stepSize,
+    double finalX,
+    function<double(double, double)> f
+);
+
+vector<double> numerov(
+    double initialX,
+    double initialY,
+    double nextY,
+    double stepSize,
+    double finalX,
+    function<double(double)> f
+);
+
+//********************************************/
+//*              *Euler solver*              *
+//********************************************/
+
+vector<double> solveSchrodingerEuler(
+    const vector<double>& x,
+    const vector<double>& potential,
+    double effectiveMass,
+    double energy,
+    double hbar
+){
+    double dx = x[1] - x[0];
+
+    auto equation =
+        [&](double position, double psi)
+        {
+            size_t index =
+                static_cast<size_t>(
+                    (position - x[0]) / dx
+                );
+
+            if (index >= potential.size())
+            {
+                index = potential.size() - 1;
+            }
+
+            return
+                (2.0 * effectiveMass /
+                (hbar * hbar))
+                *
+                (potential[index] - energy)
+                *
+                psi;
+        };
+
+    return euler(
+        x[0],
+        1.0,
+        0.0,
+        dx,
+        x.back(),
+        equation
+    );
+}
+
+//********************************************/
+//*           *Leapfrog solver*              *
+//********************************************/
+
+vector<double> solveSchrodingerLeapfrog(
+    const vector<double>& x,
+    const vector<double>& potential,
+    double effectiveMass,
+    double energy,
+    double hbar
+){
+
+    double dx = x[1] - x[0];
+
+    auto equation = [&](double position, double psi){
+
+            size_t index = static_cast<size_t>((position - x[0]) / dx);
+
+            if (index >= potential.size()){
+
+                index = potential.size() - 1;
+            }
+
+            return (2.0 * effectiveMass / (hbar * hbar)) * (potential[index] - energy) * psi;
+        };
+
+    return leapfrog(x[0], 1.0, 0.0, dx, x.back(), equation);
+}
+
+//********************************************/
+//*            *Numerov solver*              *
+//********************************************/
+
+/*
+
+    Numerov trabaja directamente con: ψ′′ = f(x)ψ
+    por lo que definimos: f(x) = ℏ2 / 2m ∗ ​(V(x)−E)
+
+*/
+
+vector<double> solveSchrodingerNumerov(
     const vector<double>& x,
     const vector<double>& potential,
     double effectiveMass,
@@ -11,43 +124,39 @@ vector<double> solveSchrodinger(
     double hbar
 )
 {
-    if (x.size() != potential.size() || x.size() < 2)
-    {
-        return {};
-    }
-
     double dx = x[1] - x[0];
 
-    vector<double> psi(x.size());
-
-    psi[0] = 0.0;
-
-    double velocity = 1.0;
-
-    auto equation = [&](double position, double wavefunction)
-    {
-        size_t index = static_cast<size_t>(
-            (position - x[0]) / dx
-        );
-
-        if (index >= potential.size())
+    auto equation =
+        [&](double position)
         {
-            index = potential.size() - 1;
-        }
+            size_t index =
+                static_cast<size_t>(
+                    (position - x[0]) / dx
+                );
 
-        return (2.0 * effectiveMass / (hbar * hbar)) *
-               (potential[index] - energy) *
-               wavefunction;
-    };
+            if (index >= potential.size())
+            {
+                index = potential.size() - 1;
+            }
 
-    velocity += 0.5 * dx * equation(x[0], psi[0]);
+            return
+                (2.0 * effectiveMass /
+                (hbar * hbar))
+                *
+                (potential[index] - energy);
+        };
 
-    for (size_t i = 0; i < x.size() - 1; i++)
-    {
-        psi[i + 1] = psi[i] + dx * velocity;
+    double firstValue = 1.0;
 
-        velocity += dx * equation(x[i + 1], psi[i + 1]);
-    }
+    double secondValue =
+        1.0;
 
-    return psi;
+    return numerov(
+        x[0],
+        firstValue,
+        secondValue,
+        dx,
+        x.back(),
+        equation
+    );
 }

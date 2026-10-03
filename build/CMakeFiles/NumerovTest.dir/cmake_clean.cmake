@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj"
-  "CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj.d"
+  "CMakeFiles/NumerovTest.dir/src/Methods.cpp.obj"
+  "CMakeFiles/NumerovTest.dir/src/Methods.cpp.obj.d"
   "CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.obj"
   "CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.obj.d"
   "NumerovTest.exe"
