@@ -116,152 +116,48 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SimuladorQCL
+# Target rules for targets named SchrodingerTest
 
 # Build rule for target.
-SimuladorQCL: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SimuladorQCL
-.PHONY : SimuladorQCL
+SchrodingerTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SchrodingerTest
+.PHONY : SchrodingerTest
 
 # fast build rule for target.
-SimuladorQCL/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/build
-.PHONY : SimuladorQCL/fast
+SchrodingerTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/build
+.PHONY : SchrodingerTest/fast
 
-#=============================================================================
-# Target rules for targets named LeapfrogTest
-
-# Build rule for target.
-LeapfrogTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 LeapfrogTest
-.PHONY : LeapfrogTest
-
-# fast build rule for target.
-LeapfrogTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/build
-.PHONY : LeapfrogTest/fast
-
-#=============================================================================
-# Target rules for targets named NumerovTest
-
-# Build rule for target.
-NumerovTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 NumerovTest
-.PHONY : NumerovTest
-
-# fast build rule for target.
-NumerovTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/build
-.PHONY : NumerovTest/fast
-
-src/CSVReader.obj: src/CSVReader.cpp.obj
-.PHONY : src/CSVReader.obj
+src/Methods.obj: src/Methods.cpp.obj
+.PHONY : src/Methods.obj
 
 # target to build an object file
-src/CSVReader.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.obj
-.PHONY : src/CSVReader.cpp.obj
+src/Methods.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Methods.cpp.obj
+.PHONY : src/Methods.cpp.obj
 
-src/CSVReader.i: src/CSVReader.cpp.i
-.PHONY : src/CSVReader.i
-
-# target to preprocess a source file
-src/CSVReader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.i
-.PHONY : src/CSVReader.cpp.i
-
-src/CSVReader.s: src/CSVReader.cpp.s
-.PHONY : src/CSVReader.s
-
-# target to generate assembly for a file
-src/CSVReader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/CSVReader.cpp.s
-.PHONY : src/CSVReader.cpp.s
-
-src/LaserQCL.obj: src/LaserQCL.cpp.obj
-.PHONY : src/LaserQCL.obj
-
-# target to build an object file
-src/LaserQCL.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.obj
-.PHONY : src/LaserQCL.cpp.obj
-
-src/LaserQCL.i: src/LaserQCL.cpp.i
-.PHONY : src/LaserQCL.i
+src/Methods.i: src/Methods.cpp.i
+.PHONY : src/Methods.i
 
 # target to preprocess a source file
-src/LaserQCL.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.i
-.PHONY : src/LaserQCL.cpp.i
+src/Methods.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Methods.cpp.i
+.PHONY : src/Methods.cpp.i
 
-src/LaserQCL.s: src/LaserQCL.cpp.s
-.PHONY : src/LaserQCL.s
-
-# target to generate assembly for a file
-src/LaserQCL.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/LaserQCL.cpp.s
-.PHONY : src/LaserQCL.cpp.s
-
-src/Materials.obj: src/Materials.cpp.obj
-.PHONY : src/Materials.obj
-
-# target to build an object file
-src/Materials.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.obj
-.PHONY : src/Materials.cpp.obj
-
-src/Materials.i: src/Materials.cpp.i
-.PHONY : src/Materials.i
-
-# target to preprocess a source file
-src/Materials.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.i
-.PHONY : src/Materials.cpp.i
-
-src/Materials.s: src/Materials.cpp.s
-.PHONY : src/Materials.s
+src/Methods.s: src/Methods.cpp.s
+.PHONY : src/Methods.s
 
 # target to generate assembly for a file
-src/Materials.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Materials.cpp.s
-.PHONY : src/Materials.cpp.s
-
-src/Methods/Methods.obj: src/Methods/Methods.cpp.obj
-.PHONY : src/Methods/Methods.obj
-
-# target to build an object file
-src/Methods/Methods.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.obj
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.obj
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.obj
-.PHONY : src/Methods/Methods.cpp.obj
-
-src/Methods/Methods.i: src/Methods/Methods.cpp.i
-.PHONY : src/Methods/Methods.i
-
-# target to preprocess a source file
-src/Methods/Methods.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.i
-.PHONY : src/Methods/Methods.cpp.i
-
-src/Methods/Methods.s: src/Methods/Methods.cpp.s
-.PHONY : src/Methods/Methods.s
-
-# target to generate assembly for a file
-src/Methods/Methods.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Methods/Methods.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/src/Methods/Methods.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/src/Methods/Methods.cpp.s
-.PHONY : src/Methods/Methods.cpp.s
+src/Methods.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Methods.cpp.s
+.PHONY : src/Methods.cpp.s
 
 src/Schrodinger.obj: src/Schrodinger.cpp.obj
 .PHONY : src/Schrodinger.obj
 
 # target to build an object file
 src/Schrodinger.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Schrodinger.cpp.obj
 .PHONY : src/Schrodinger.cpp.obj
 
 src/Schrodinger.i: src/Schrodinger.cpp.i
@@ -269,7 +165,7 @@ src/Schrodinger.i: src/Schrodinger.cpp.i
 
 # target to preprocess a source file
 src/Schrodinger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Schrodinger.cpp.i
 .PHONY : src/Schrodinger.cpp.i
 
 src/Schrodinger.s: src/Schrodinger.cpp.s
@@ -277,80 +173,32 @@ src/Schrodinger.s: src/Schrodinger.cpp.s
 
 # target to generate assembly for a file
 src/Schrodinger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/Schrodinger.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Schrodinger.cpp.s
 .PHONY : src/Schrodinger.cpp.s
 
-src/main.obj: src/main.cpp.obj
-.PHONY : src/main.obj
+test/SchrodingerTest.obj: test/SchrodingerTest.cpp.obj
+.PHONY : test/SchrodingerTest.obj
 
 # target to build an object file
-src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/main.cpp.obj
-.PHONY : src/main.cpp.obj
+test/SchrodingerTest.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/test/SchrodingerTest.cpp.obj
+.PHONY : test/SchrodingerTest.cpp.obj
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SimuladorQCL.dir\build.make CMakeFiles/SimuladorQCL.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
-
-test/LeapfrogTest.obj: test/LeapfrogTest.cpp.obj
-.PHONY : test/LeapfrogTest.obj
-
-# target to build an object file
-test/LeapfrogTest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.obj
-.PHONY : test/LeapfrogTest.cpp.obj
-
-test/LeapfrogTest.i: test/LeapfrogTest.cpp.i
-.PHONY : test/LeapfrogTest.i
+test/SchrodingerTest.i: test/SchrodingerTest.cpp.i
+.PHONY : test/SchrodingerTest.i
 
 # target to preprocess a source file
-test/LeapfrogTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.i
-.PHONY : test/LeapfrogTest.cpp.i
+test/SchrodingerTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/test/SchrodingerTest.cpp.i
+.PHONY : test/SchrodingerTest.cpp.i
 
-test/LeapfrogTest.s: test/LeapfrogTest.cpp.s
-.PHONY : test/LeapfrogTest.s
-
-# target to generate assembly for a file
-test/LeapfrogTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LeapfrogTest.dir\build.make CMakeFiles/LeapfrogTest.dir/test/LeapfrogTest.cpp.s
-.PHONY : test/LeapfrogTest.cpp.s
-
-test/NumerovTest.obj: test/NumerovTest.cpp.obj
-.PHONY : test/NumerovTest.obj
-
-# target to build an object file
-test/NumerovTest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.obj
-.PHONY : test/NumerovTest.cpp.obj
-
-test/NumerovTest.i: test/NumerovTest.cpp.i
-.PHONY : test/NumerovTest.i
-
-# target to preprocess a source file
-test/NumerovTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.i
-.PHONY : test/NumerovTest.cpp.i
-
-test/NumerovTest.s: test/NumerovTest.cpp.s
-.PHONY : test/NumerovTest.s
+test/SchrodingerTest.s: test/SchrodingerTest.cpp.s
+.PHONY : test/SchrodingerTest.s
 
 # target to generate assembly for a file
-test/NumerovTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\NumerovTest.dir\build.make CMakeFiles/NumerovTest.dir/test/NumerovTest.cpp.s
-.PHONY : test/NumerovTest.cpp.s
+test/SchrodingerTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/test/SchrodingerTest.cpp.s
+.PHONY : test/SchrodingerTest.cpp.s
 
 # Help Target
 help:
@@ -360,33 +208,16 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... LeapfrogTest
-	@echo ... NumerovTest
-	@echo ... SimuladorQCL
-	@echo ... src/CSVReader.obj
-	@echo ... src/CSVReader.i
-	@echo ... src/CSVReader.s
-	@echo ... src/LaserQCL.obj
-	@echo ... src/LaserQCL.i
-	@echo ... src/LaserQCL.s
-	@echo ... src/Materials.obj
-	@echo ... src/Materials.i
-	@echo ... src/Materials.s
-	@echo ... src/Methods/Methods.obj
-	@echo ... src/Methods/Methods.i
-	@echo ... src/Methods/Methods.s
+	@echo ... SchrodingerTest
+	@echo ... src/Methods.obj
+	@echo ... src/Methods.i
+	@echo ... src/Methods.s
 	@echo ... src/Schrodinger.obj
 	@echo ... src/Schrodinger.i
 	@echo ... src/Schrodinger.s
-	@echo ... src/main.obj
-	@echo ... src/main.i
-	@echo ... src/main.s
-	@echo ... test/LeapfrogTest.obj
-	@echo ... test/LeapfrogTest.i
-	@echo ... test/LeapfrogTest.s
-	@echo ... test/NumerovTest.obj
-	@echo ... test/NumerovTest.i
-	@echo ... test/NumerovTest.s
+	@echo ... test/SchrodingerTest.obj
+	@echo ... test/SchrodingerTest.i
+	@echo ... test/SchrodingerTest.s
 .PHONY : help
 
 
