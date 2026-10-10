@@ -1,6 +1,8 @@
+
 #include <vector>
 #include <functional>
 #include <cmath>
+#include <cstddef>
 
 using namespace std;
 
@@ -31,8 +33,49 @@ vector<double> numerov(
     function<double(double)> f
 );
 
+
+//indice del potencial correspondiente a x.
+
+static size_t getPotentialIndex(double position, const vector<double>& x, double dx){
+
+    long index = lround((position - x[0]) / dx);
+
+    if (index < 0){
+
+            index = 0;
+        }
+
+    if (index >= static_cast<long>(x.size())){
+        
+            index = static_cast<long>(x.size()) - 1;
+        }
+
+    return static_cast<size_t>(index);
+
+}
+
+
+// Calcula psi'' para la ecuacion de Schrodinger.
+
+static double schrodingerCoefficient(
+    double position,
+    const vector<double>& x,
+    const vector<double>& potential,
+    double effectiveMass,
+    double energy,
+    double hbar,
+    double dx
+){
+
+    size_t index = getPotentialIndex(position, x, dx);
+
+    return (2.0 * effectiveMass / (hbar * hbar)) * (potential[index] - energy);
+
+}
+
+
 //********************************************/
-//*              *Euler solver*              *
+//*             *Euler solver*               *
 //********************************************/
 
 vector<double> solveSchrodingerEuler(
@@ -42,42 +85,28 @@ vector<double> solveSchrodingerEuler(
     double energy,
     double hbar
 ){
+
+    if (x.size() < 2 || x.size() != potential.size() || hbar == 0.0){
+
+            return {};
+        }
+
     double dx = x[1] - x[0];
 
-    auto equation =
-        [&](double position, double psi)
-        {
-            size_t index =
-                static_cast<size_t>(
-                    (position - x[0]) / dx
-                );
+    auto equation = [&](double position, double psi){
 
-            if (index >= potential.size())
-            {
-                index = potential.size() - 1;
-            }
+        double coefficient = schrodingerCoefficient(position, x, potential, effectiveMass, energy, hbar, dx);
 
-            return
-                (2.0 * effectiveMass /
-                (hbar * hbar))
-                *
-                (potential[index] - energy)
-                *
-                psi;
-        };
+        return coefficient * psi;
 
-    return euler(
-        x[0],
-        1.0,
-        0.0,
-        dx,
-        x.back(),
-        equation
-    );
+    };
+
+    return euler(x.front(), 1.0, 0.0, dx, x.back(), equation);
 }
 
+
 //********************************************/
-//*           *Leapfrog solver*              *
+//*             *Leapfrog solver*            *
 //********************************************/
 
 vector<double> solveSchrodingerLeapfrog(
@@ -88,33 +117,27 @@ vector<double> solveSchrodingerLeapfrog(
     double hbar
 ){
 
+    if (x.size() < 2 || x.size() != potential.size() || hbar == 0.0){
+
+            return {};
+        }
+
     double dx = x[1] - x[0];
 
     auto equation = [&](double position, double psi){
 
-            size_t index = static_cast<size_t>((position - x[0]) / dx);
+        double coefficient = schrodingerCoefficient(position, x, potential, effectiveMass, energy, hbar, dx);
 
-            if (index >= potential.size()){
+        return coefficient * psi;
+    };
 
-                index = potential.size() - 1;
-            }
+    return leapfrog(x.front(), 1.0, 0.0, dx, x.back(), equation);
 
-            return (2.0 * effectiveMass / (hbar * hbar)) * (potential[index] - energy) * psi;
-        };
-
-    return leapfrog(x[0], 1.0, 0.0, dx, x.back(), equation);
 }
 
 //********************************************/
-//*            *Numerov solver*              *
+//*             *Numerov solver*             *
 //********************************************/
-
-/*
-
-    Numerov trabaja directamente con: ψ′′ = f(x)ψ
-    por lo que definimos: f(x) = ℏ2 / 2m ∗ ​(V(x)−E)
-
-*/
 
 vector<double> solveSchrodingerNumerov(
     const vector<double>& x,
@@ -122,41 +145,28 @@ vector<double> solveSchrodingerNumerov(
     double effectiveMass,
     double energy,
     double hbar
-)
-{
+){
+
+    if (x.size() < 2 || x.size() != potential.size() || hbar == 0.0){
+
+            return {};
+        }
+
     double dx = x[1] - x[0];
 
-    auto equation =
-        [&](double position)
-        {
-            size_t index =
-                static_cast<size_t>(
-                    (position - x[0]) / dx
-                );
+    auto equation = [&](double position){
 
-            if (index >= potential.size())
-            {
-                index = potential.size() - 1;
-            }
-
-            return
-                (2.0 * effectiveMass /
-                (hbar * hbar))
-                *
-                (potential[index] - energy);
-        };
+        return schrodingerCoefficient(position, x, potential, effectiveMass, energy, hbar, dx);
+    };
 
     double firstValue = 1.0;
 
-    double secondValue =
-        1.0;
+    // Taylor: psi(h) = psi(0) + h*psi'(0) + h^2*psi''(0)/2
 
-    return numerov(
-        x[0],
-        firstValue,
-        secondValue,
-        dx,
-        x.back(),
-        equation
-    );
+    double secondDerivative = equation(x.front()) * firstValue;
+
+    double secondValue = firstValue + dx * 0.0 + 0.5 * dx * dx * secondDerivative;
+
+    return numerov(x.front(), firstValue, secondValue, dx, x.back(), equation);
+    
 }

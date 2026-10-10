@@ -14,27 +14,30 @@ vector<double> euler(
     double initialDerivative,
     double stepSize,
     double finalX,
-    function<double(double, double)> equation
-){
+    function<double(double, double)> equation){
 
-    int steps = static_cast<int>((finalX - initialX) / stepSize);
+    if (stepSize <= 0.0 || finalX < initialX){
+
+            return {};
+        }
+
+    int steps = static_cast<int>(round((finalX - initialX) / stepSize));
 
     vector<double> y(steps + 1);
 
     y[0] = initialY;
 
     double derivative = initialDerivative;
-    double x = initialX;
 
     for (int i = 0; i < steps; i++){
 
+        double x = initialX + i * stepSize;
+
         double secondDerivative = equation(x, y[i]);
 
-        y[i + 1] = y[i] +  stepSize * derivative;
+        y[i + 1] = y[i] + stepSize * derivative;
 
         derivative += stepSize * secondDerivative;
-
-        x += stepSize;
     }
 
     return y;
@@ -50,27 +53,31 @@ vector<double> leapfrog(
     double initialVelocity,
     double stepSize,
     double finalX,
-    function<double(double, double)> f
-){
+    function<double(double, double)> f){
 
-    int steps = static_cast<int>((finalX - initialX) / stepSize);
+    if (stepSize <= 0.0 || finalX < initialX){
+            
+            return {};
+        }
+
+    int steps = static_cast<int>(round((finalX - initialX) / stepSize));
 
     vector<double> y(steps + 1);
 
     y[0] = initialY;
 
     double velocity = initialVelocity;
-    double x = initialX;
 
-    velocity += 0.5 * stepSize * f(x, y[0]);
+    // Aproximacion inicial de la derivada en medio paso
+    velocity += 0.5 * stepSize * f(initialX, y[0]);
 
     for (int i = 0; i < steps; i++){
 
+        double xNext = initialX + (i + 1) * stepSize;
+
         y[i + 1] = y[i] + stepSize * velocity;
 
-        x += stepSize;
-
-        velocity += stepSize * f(x, y[i + 1]);
+        velocity += stepSize * f(xNext, y[i + 1]);
 
     }
 
@@ -87,9 +94,19 @@ vector<double> numerov(
     double nextY,
     double stepSize,
     double finalX,
-    function<double(double)> f
-){
-    int steps = static_cast<int>((finalX - initialX) / stepSize);
+    function<double(double)> f){
+
+    if (stepSize <= 0.0 || finalX < initialX){
+
+            return {};
+        }
+
+    int steps = static_cast<int>(round((finalX - initialX) / stepSize));
+
+    if (steps < 1){
+
+            return {};
+        }
 
     vector<double> y(steps + 1);
 
@@ -99,22 +116,24 @@ vector<double> numerov(
     for (int i = 1; i < steps; i++){
 
         double xPrevious = initialX + (i - 1) * stepSize;
-
-        double xCurrent = initialX + i * stepSize;
-
-        double xNext = initialX + (i + 1) * stepSize;
+        double xCurrent  = initialX + i * stepSize;
+        double xNext     = initialX + (i + 1) * stepSize;
 
         double fPrevious = f(xPrevious);
+        double fCurrent  = f(xCurrent);
+        double fNext     = f(xNext);
 
-        double fCurrent = f(xCurrent);
+        double numerator = 2.0 * (1.0 + 5.0 * stepSize * stepSize * fCurrent / 12.0) * y[i] - (1.0 - stepSize * stepSize * fPrevious / 12.0) * y[i - 1];
 
-        double fNext = f(xNext);
+        double denominator = 1.0 - stepSize * stepSize * fNext / 12.0;
 
-        double numerator = 2.0 * (1.0 + (5.0 * stepSize * stepSize / 12.0) * fCurrent) * y[i] - (1.0 - (stepSize * stepSize / 12.0) * fPrevious) * y[i - 1];
+        if (abs(denominator) < 1e-14){
 
-        double denominator = 1.0 - (stepSize * stepSize / 12.0) * fNext;
+                return {};
+            }
 
         y[i + 1] = numerator / denominator;
+
     }
 
     return y;
