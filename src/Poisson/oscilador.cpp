@@ -5,8 +5,8 @@
 
 using namespace std;
 
-// Calcula los tres primeros eigenvalores (energias).
-// Formula: E_n = hbar * omega * (n + 1/2)
+// tres primeros eigenvalores (energias).
+// E_n = hbar * omega * (n + 1/2)
 vector<double> CalculateEigenvalues(double hbar, double omega){
     vector<double> eigenvalues;
 
@@ -17,8 +17,8 @@ vector<double> CalculateEigenvalues(double hbar, double omega){
 
     return eigenvalues;
 }
-
-// Calcula la funcion de onda del estado n en la coordenada adimensional xi.
+ 
+// calc funcion de onda del estado n en la coordenada adimensional xi.
 //
 // Formula general:
 // psi_n(xi) = [1 / sqrt(2^n * n! * sqrt(pi))] * H_n(xi) * exp(-xi^2 / 2)
@@ -51,8 +51,8 @@ double CalculateWavefunction(int n, double xi){
 
 int main() {
     // unidades adimensionales para simplificar 
-    double hbar = 1.0;
-    double omega = 1.0;
+    double hbar = 1.05457181e-34 ; //j
+    double omega = 1.0; //rads¿
 
     // calcular las energias.
     vector<double> energies = CalculateEigenvalues(hbar, omega);
@@ -64,16 +64,16 @@ int main() {
     }
 
     //malla de posiciones adimensionales xi
-    double xiMin = -5.0; // Limite inferior de la malla
-    double xiMax = 5.0; // Limite superior de la malla
-    double step = 0.1; // Paso de la malla
+    double xiMin = -5.0; // Lim inferior de la malla
+    double xiMax = 5.0; // Lim superior de la malla
+    double step = 0.01
 
     int numberOfPoints =
         static_cast<int>((xiMax - xiMin) / step) + 1;
 
     cout << "\nFunciones de onda en algunos puntos:" << endl;
 
-    //calcular las tres funciones de onda en cada posicion.
+    //calcular las funciones de onda en cada posicion.
     for (int i = 0; i < numberOfPoints; i++){
         double xi = xiMin + i * step;
 
