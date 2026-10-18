@@ -33,6 +33,33 @@ vector<double> numerov(
     function<double(double)> f
 );
 
+// Coeficiente de la ecuacion de Schrodinger:
+// psi''(x) = [2m/hbar^2] * [V(x) - E] * psi(x)
+
+static double schrodingerCoefficient(
+    double position,
+    const vector<double>& x,
+    const vector<double>& potential,
+    double effectiveMass,
+    double energy,
+    double hbar,
+    double dx
+){
+
+    long index = lround((position - x.front()) / dx);
+
+    if (index < 0){
+
+            index = 0;
+        }
+
+    if (index >= static_cast<long>(potential.size())){
+
+            index = static_cast<long>(potential.size()) - 1;
+        }
+
+    return (2.0 * effectiveMass / (hbar * hbar)) * (potential[static_cast<size_t>(index)] - energy);
+}
 
 //indice del potencial correspondiente a x.
 
@@ -54,26 +81,6 @@ static size_t getPotentialIndex(double position, const vector<double>& x, double
 
 }
 
-
-// Calcula psi'' para la ecuacion de Schrodinger.
-
-static double schrodingerCoefficient(
-    double position,
-    const vector<double>& x,
-    const vector<double>& potential,
-    double effectiveMass,
-    double energy,
-    double hbar,
-    double dx
-){
-
-    size_t index = getPotentialIndex(position, x, dx);
-
-    return (2.0 * effectiveMass / (hbar * hbar)) * (potential[index] - energy);
-
-}
-
-
 //********************************************/
 //*             *Euler solver*               *
 //********************************************/
@@ -83,11 +90,13 @@ vector<double> solveSchrodingerEuler(
     const vector<double>& potential,
     double effectiveMass,
     double energy,
-    double hbar
+    double hbar,
+    double initialPsi,
+    double initialDerivative
 ){
 
     if (x.size() < 2 || x.size() != potential.size() || hbar == 0.0){
-
+        
             return {};
         }
 
@@ -95,13 +104,11 @@ vector<double> solveSchrodingerEuler(
 
     auto equation = [&](double position, double psi){
 
-        double coefficient = schrodingerCoefficient(position, x, potential, effectiveMass, energy, hbar, dx);
-
-        return coefficient * psi;
-
+        return schrodingerCoefficient(position, x, potential, effectiveMass, energy, hbar, dx) * psi;
     };
 
-    return euler(x.front(), 1.0, 0.0, dx, x.back(), equation);
+    return euler(x.front(), initialPsi, initialDerivative, dx, x.back(), equation);
+
 }
 
 
@@ -114,7 +121,9 @@ vector<double> solveSchrodingerLeapfrog(
     const vector<double>& potential,
     double effectiveMass,
     double energy,
-    double hbar
+    double hbar,
+    double initialPsi,
+    double initialDerivative
 ){
 
     if (x.size() < 2 || x.size() != potential.size() || hbar == 0.0){
@@ -126,12 +135,10 @@ vector<double> solveSchrodingerLeapfrog(
 
     auto equation = [&](double position, double psi){
 
-        double coefficient = schrodingerCoefficient(position, x, potential, effectiveMass, energy, hbar, dx);
-
-        return coefficient * psi;
+        return schrodingerCoefficient(position, x, potential, effectiveMass, energy, hbar, dx) * psi;
     };
 
-    return leapfrog(x.front(), 1.0, 0.0, dx, x.back(), equation);
+    return leapfrog(x.front(), initialPsi, initialDerivative, dx, x.back(), equation);
 
 }
 
@@ -144,7 +151,9 @@ vector<double> solveSchrodingerNumerov(
     const vector<double>& potential,
     double effectiveMass,
     double energy,
-    double hbar
+    double hbar,
+    double initialPsi,
+    double initialDerivative
 ){
 
     if (x.size() < 2 || x.size() != potential.size() || hbar == 0.0){
@@ -159,14 +168,17 @@ vector<double> solveSchrodingerNumerov(
         return schrodingerCoefficient(position, x, potential, effectiveMass, energy, hbar, dx);
     };
 
-    double firstValue = 1.0;
+    // Valor inicial
+    double firstValue = initialPsi;
 
-    // Taylor: psi(h) = psi(0) + h*psi'(0) + h^2*psi''(0)/2
+    // Aproximacion de Taylor para psi(dx).
+    // Para V(x) = x^2, la derivada del coeficiente
+    // es cero en x = 0.
+    
+    double coefficientAtZero = equation(x.front());
 
-    double secondDerivative = equation(x.front()) * firstValue;
-
-    double secondValue = firstValue + dx * 0.0 + 0.5 * dx * dx * secondDerivative;
+    double secondValue = initialPsi + dx * initialDerivative + 0.5 * dx * dx * coefficientAtZero * initialPsi + (dx * dx * dx / 6.0) * coefficientAtZero * initialDerivative;
 
     return numerov(x.front(), firstValue, secondValue, dx, x.back(), equation);
-    
+
 }

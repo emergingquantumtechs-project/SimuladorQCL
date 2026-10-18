@@ -1,4 +1,5 @@
 
+
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -12,7 +13,9 @@ vector<double> solveSchrodingerEuler(
     const vector<double>& potential,
     double effectiveMass,
     double energy,
-    double hbar
+    double hbar,
+    double initialPsi,
+    double initialDerivative
 );
 
 vector<double> solveSchrodingerLeapfrog(
@@ -20,7 +23,9 @@ vector<double> solveSchrodingerLeapfrog(
     const vector<double>& potential,
     double effectiveMass,
     double energy,
-    double hbar
+    double hbar,
+    double initialPsi,
+    double initialDerivative
 );
 
 vector<double> solveSchrodingerNumerov(
@@ -28,148 +33,139 @@ vector<double> solveSchrodingerNumerov(
     const vector<double>& potential,
     double effectiveMass,
     double energy,
-    double hbar
+    double hbar,
+    double initialPsi,
+    double initialDerivative
 );
 
-int main(){
 
-    //********************************************/
-    //*       Configuracion de la malla          *
-    //********************************************/
+int main()
+{
+    //************************************************************/
+    //*     Configuracion: resolver desde x = 0 hasta x = 3      *
+    //************************************************************/
 
-    double initialX = 0.0;
-    double finalX = 1.0;
-    double step = 0.01;
+    const double initialX = 0.0;
+    const double finalX = 3.0;
+    const double step = 0.01;
 
-    int intervals = static_cast<int>(round((finalX - initialX) / step));
+    const int intervals = static_cast<int>(
+        round((finalX - initialX) / step)
+    );
 
-    int points = intervals + 1;
+    const int points = intervals + 1;
 
     vector<double> x(points);
     vector<double> potential(points);
 
-    //****************************************************************/
-    //*        Construir la posicion y el potencial V(x) = x^2       *
-    //****************************************************************/
-
-    for (int i = 0; i < points; i++){
-
+    for (int i = 0; i < points; i++)
+    {
         x[i] = initialX + i * step;
         potential[i] = x[i] * x[i];
-
     }
 
-    //***************************************************/
-    //*       Parametros normalizados de la prueba      *
-    //***************************************************/
+    //************************************************************/
+    //*                Parametros normalizados                   *
+    //************************************************************/
 
-    double effectiveMass = 0.5;
-    double energy = 1.0;
-    double hbar = 1.0;
+    const double effectiveMass = 0.5;
+    const double hbar = 1.0;
 
-    //***************************************************/
-    //*          Resolver con cada metodo               *
-    //***************************************************/
+    // Energias conocidas del oscilador armonico normalizado
+    const double energy0 = 1.0;
+    const double energy1 = 3.0;
 
-    auto eulerResult = solveSchrodingerEuler(x, potential, effectiveMass, energy, hbar);
+    //************************************************************/
+    //*               Estado basal: par, sin nodos               *
+    //*               psi(0) = 1, psi'(0) = 0                    *
+    //************************************************************/
 
-    auto leapfrogResult = solveSchrodingerLeapfrog(x, potential, effectiveMass, energy, hbar);
+    auto euler0 = solveSchrodingerEuler(x, potential, effectiveMass, energy0, hbar, 1.0, 0.0);
 
-    auto numerovResult = solveSchrodingerNumerov(x, potential, effectiveMass, energy, hbar);
+    auto leapfrog0 = solveSchrodingerLeapfrog(x, potential, effectiveMass, energy0, hbar, 1.0, 0.0);
 
-    //**********************************************************/
-    //*       Comprobar que los resultados sean validos        *
-    //**********************************************************/
+    auto numerov0 = solveSchrodingerNumerov(x, potential, effectiveMass, energy0, hbar, 1.0, 0.0);
 
-    if (eulerResult.size() != x.size() || leapfrogResult.size() != x.size() || numerovResult.size() != x.size()){
+    //************************************************************/
+    //*     Primer estado excitado: impar, un nodo en x = 0      *
+    //*     psi(0) = 0, psi'(0) = 1                              *
+    //************************************************************/
 
-        cerr << "Error: no se pudieron calcular " << "todas las soluciones.\n";
+    auto euler1 = solveSchrodingerEuler(x, potential, effectiveMass, energy1, hbar, 0.0, 1.0);
 
+    auto leapfrog1 = solveSchrodingerLeapfrog(x, potential, effectiveMass, energy1, hbar, 0.0, 1.0);
+
+    auto numerov1 = solveSchrodingerNumerov(x, potential, effectiveMass, energy1, hbar, 0.0, 1.0);
+
+    //************************************************************/
+    //*                  Verificar resultados                    *
+    //************************************************************/
+
+    if (euler0.size() != x.size() || leapfrog0.size() != x.size() || numerov0.size() != x.size() || euler1.size() != x.size() || leapfrog1.size() != x.size() || numerov1.size() != x.size()){
+
+        cerr << "Error al calcular las funciones de onda.\n";
         return 1;
     }
 
-    //*************************************************/
-    //*          Preparar el archivo CSV              *
-    //*************************************************/
+    //************************************************************/
+    //*      Crear CSV con el intervalo completo [-3, 3]         *
+    //************************************************************/
 
     ofstream output("SchrodingerComparison.csv");
 
     if (!output.is_open()){
 
-        cerr << "Error: no se pudo crear el archivo CSV.\n";
+        cerr << "No se pudo crear el archivo CSV.\n";
         return 1;
 
     }
 
-    output << "x,V_x,Euler,Leapfrog,Numerov," << "Error_Euler_Leapfrog," << "Error_Euler_Numerov," << "Error_Leapfrog_Numerov\n";
+    output << "x,V_x," << "Euler_psi0,Leapfrog_psi0,Numerov_psi0," << "Euler_psi1,Leapfrog_psi1,Numerov_psi1\n";
 
-    //******************************************************************/
-    //*         Mostrar los resultados y calcular diferencias          *
-    //******************************************************************/
+    cout << fixed << setprecision(6);
 
-    double maxEulerLeapfrog = 0.0;
-    double maxEulerNumerov = 0.0;
-    double maxLeapfrogNumerov = 0.0;
-
-    cout << fixed << setprecision(8);
-
-    cout << "/************************************************************/\n";
-    cout << "/*         COMPARACION DE METODOS DE SCHRODINGER            *\n";
-    cout << "/************************************************************/\n\n";
-
+    cout << "COMPARACION DE FUNCIONES DE ONDA\n";
     cout << "Potencial: V(x) = x^2\n";
-    cout << "Intervalo: [" << initialX << ", " << finalX << "]\n";
+    cout << "Intervalo: [-3, 3]\n";
     cout << "Paso: " << step << '\n';
-    cout << "Numero de puntos: " << points << "\n\n";
-    cout << "x\tV(x)\tEuler\tLeapfrog\tNumerov\n";
+    cout << "Puntos en el intervalo completo: " << 2 * intervals + 1 << "\n\n";
 
-    for (size_t i = 0; i < x.size(); i++){
+    cout << "x\tV(x)\tEuler_psi0\tLeapfrog_psi0\tNumerov_psi0" << "\tEuler_psi1\tLeapfrog_psi1\tNumerov_psi1\n";
 
-        double errorEulerLeapfrog = abs(eulerResult[i] - leapfrogResult[i]);
+    // Recorrer de -3 a 3
+    for (int i = -intervals; i <= intervals; i++){
 
-        double errorEulerNumerov = abs(eulerResult[i] - numerovResult[i]);
+        double position = i * step;
+        double positivePosition = abs(position);
 
-        double errorLeapfrogNumerov = abs(leapfrogResult[i] - numerovResult[i]);
+        int j = static_cast<int>(round(positivePosition / step));
 
-        if (errorEulerLeapfrog > maxEulerLeapfrog){
+        // Estado basal: par, psi(-x) = psi(x)
+        double e0 = euler0[j];
+        double l0 = leapfrog0[j];
+        double n0 = numerov0[j];
 
-                maxEulerLeapfrog = errorEulerLeapfrog;
-            }
+        // Primer excitado: impar, psi(-x) = -psi(x)
+        double sign = (position < 0.0) ? -1.0 : 1.0;
 
-        if (errorEulerNumerov > maxEulerNumerov){
+        double e1 = sign * euler1[j];
+        double l1 = sign * leapfrog1[j];
+        double n1 = sign * numerov1[j];
 
-                maxEulerNumerov = errorEulerNumerov;
-            }
+        double potentialValue = position * position;
 
-        if (errorLeapfrogNumerov > maxLeapfrogNumerov){
+        output << position << ',' << potentialValue << ',' << e0 << ',' << l0 << ',' << n0 << ',' << e1 << ',' << l1 << ',' << n1 << '\n';
 
-                maxLeapfrogNumerov = errorLeapfrogNumerov;
-            }
-
-        cout << x[i] << '\t'  << potential[i] << '\t'  << eulerResult[i] << '\t' << leapfrogResult[i] << '\t' << numerovResult[i] << '\n';
-
-        output << x[i] << ',' << potential[i] << ',' << eulerResult[i] << ',' << leapfrogResult[i] << ',' << numerovResult[i] << ',' << errorEulerLeapfrog << ','
-            << errorEulerNumerov << ',' << errorLeapfrogNumerov << '\n';
-
+        // Imprimir cada 0.5 unidades para no saturar la terminal
+        if (i % 50 == 0 || i == intervals){
+            
+            cout << position << '\t' << potentialValue << '\t' << e0 << '\t' << l0 << '\t' << n0 << '\t' << e1 << '\t' << l1 << '\t' << n1 << '\n';
+        }
     }
 
     output.close();
 
-    //************************************************************/
-    //*           Resumen de las diferencias maximas             *
-    //************************************************************/
-
-    cout << "\n/************************************************************/\n";
-    cout << "/*            DIFERENCIAS MAXIMAS ENTRE METODOS             *\n";
-    cout << "/************************************************************/\n";
-
-    cout << "Euler - Leapfrog: " << maxEulerLeapfrog << '\n';
-
-    cout << "Euler - Numerov: " << maxEulerNumerov << '\n';
-
-    cout << "Leapfrog - Numerov: " << maxLeapfrogNumerov << '\n';
-
-    cout << "\nResultados guardados en " << "SchrodingerComparison.csv\n";
+    cout << "\nArchivo generado: SchrodingerComparison.csv\n";
 
     return 0;
 }
