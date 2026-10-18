@@ -35,7 +35,6 @@ public:
           effective_Mass(effectiveMass),
           hbar(hbarValue)
     {
-        
     }
 
     //***CalculateDensityOfStates***
