@@ -87,7 +87,7 @@ int main() {
 
     cout << "\nComprobacion de normalizacion:" << endl;
 
-    for (int n = 0; n < 3; n++) {
+    for (int n = 0; n < 3; n++){
         double integral = 0.0;
 
         for (int i = 0; i < numberOfPoints; i++) {
@@ -101,10 +101,10 @@ int main() {
          << ", integral = " << integral << endl;
 }
 
-// Guardar las energias en un archivo CSV.
+// guardar en un archivo CSV.
 ofstream energyFile("eigenvalues.csv");
 
-if (energyFile.is_open()) {
+if (energyFile.is_open()){
     energyFile << "n,energy\n";
 
     for (int n = 0; n < energies.size(); n++) {
@@ -112,19 +112,19 @@ if (energyFile.is_open()) {
     }
 
     energyFile.close();
-    cout << "\nEnergias guardadas en eigenvalues.csv" << endl;
+    cout << "\nEnergias en eigenvalues.csv" << endl;
 }
 else {
     cout << "Error al crear eigenvalues.csv" << endl;
 }
 
-// Guardar las funciones de onda en un archivo CSV.
+// funciones de onda archivo CSV.
 ofstream wavefunctionFile("wavefunctions.csv");
 
 if (wavefunctionFile.is_open()) {
     wavefunctionFile << "xi,psi0,psi1,psi2\n";
 
-    for (int i = 0; i < numberOfPoints; i++) {
+    for (int i = 0; i < numberOfPoints; i++){
         double xi = xiMin + i * step;
 
         double psi0 = CalculateWavefunction(0, xi);
@@ -138,7 +138,7 @@ if (wavefunctionFile.is_open()) {
     }
 
     wavefunctionFile.close();
-    cout << "Funciones de onda guardadas en wavefunctions.csv" << endl;
+    cout << "Funciones de onda  en wavefunctions.csv" << endl;
 }
 else {
     cout << "Error al crear wavefunctions.csv" << endl;
