@@ -1,10 +1,9 @@
-
-
 #include <iostream>
 #include <vector>
 #include <cmath>
 #include <iomanip>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -18,154 +17,218 @@ vector<double> solveSchrodingerEuler(
     double initialDerivative
 );
 
-vector<double> solveSchrodingerLeapfrog(
+struct BisectionResult {
+    double energy;
+    double residual;
+    int iterations;
+    bool converged;
+};
+
+double calculateResidual(
     const vector<double>& x,
     const vector<double>& potential,
     double effectiveMass,
     double energy,
-    double hbar,
-    double initialPsi,
-    double initialDerivative
-);
+    double hbar
+){
+    // psi(-3) = 0, psi'(-3) = 1.
+    // The residual is psi(3).
 
-vector<double> solveSchrodingerNumerov(
+    vector<double> psi = solveSchrodingerEuler(
+        x, potential,
+        effectiveMass, energy, hbar,
+        0.0, 1.0
+    );
+
+    if (psi.size() != x.size()) {
+
+        return NAN;
+    }
+
+    return psi.back();
+}
+
+BisectionResult bisection(
     const vector<double>& x,
     const vector<double>& potential,
     double effectiveMass,
-    double energy,
     double hbar,
-    double initialPsi,
-    double initialDerivative
-);
+    double lowerEnergy,
+    double upperEnergy,
+    double energyTolerance,
+    int maxIterations,
+    ofstream& history
+) {
+    double fLower = calculateResidual(x, potential, effectiveMass, lowerEnergy, hbar);
 
+    double fUpper = calculateResidual(x, potential, effectiveMass, upperEnergy, hbar);
 
-int main()
-{
-    //************************************************************/
-    //*     Configuracion: resolver desde x = 0 hasta x = 3      *
-    //************************************************************/
+    cout << "Initial energy interval: [" << lowerEnergy << ", " << upperEnergy << "]\n";
 
-    const double initialX = 0.0;
+    cout << "F(E lower) = " << fLower << '\n';
+    cout << "F(E upper) = " << fUpper << "\n\n";
+
+    if (!isfinite(fLower) || !isfinite(fUpper) || fLower * fUpper >= 0.0) {
+
+        cerr << "Error: The initial interval does not " << "bracket a root.\n";
+
+        return {NAN, NAN, 0, false};
+
+    }
+
+    cout << "Bisection process\n";
+    cout << left << setw(12) << "Iteration" << setw(22) << "Midpoint energy" << "Residual\n";
+
+    double midpoint = lowerEnergy;
+    double fMidpoint = fLower;
+
+    for (int iteration = 1; iteration <= maxIterations; ++iteration) {
+
+        midpoint = 0.5 * (lowerEnergy + upperEnergy);
+
+        fMidpoint = calculateResidual(x, potential, effectiveMass, midpoint, hbar);
+
+        if (!isfinite(fMidpoint)) {
+
+            cerr << "Error: Non-finite residual encountered.\n";
+
+            return {midpoint, fMidpoint, iteration, false};
+
+        }
+
+        cout << left << setw(12) << iteration << setw(22) << midpoint << fMidpoint << '\n';
+
+        history << iteration << ',' << setprecision(12) << midpoint << ',' << fMidpoint << '\n';
+
+        if (abs(fMidpoint) < 1e-10 || (upperEnergy - lowerEnergy) < energyTolerance) {
+
+            return {midpoint, fMidpoint, iteration, true};
+        }
+
+        if (fLower * fMidpoint < 0.0) {
+
+                upperEnergy = midpoint;
+                fUpper = fMidpoint;
+
+        } 
+        else {
+
+            lowerEnergy = midpoint;
+            fLower = fMidpoint;
+
+        }
+    }
+
+    return {midpoint, fMidpoint, maxIterations, false};
+}
+
+int main() {
+
+    cout << fixed << setprecision(10);
+
+    cout << "********************************************\n";
+    cout << "*          SCHRODINGER SIMULATOR           *\n";
+    cout << "*          Euler Method + Bisection        *\n";
+    cout << "********************************************\n\n";
+
+    // Spatial domain and discretization.
+    const double initialX = -3.0;
     const double finalX = 3.0;
     const double step = 0.01;
 
-    const int intervals = static_cast<int>(
-        round((finalX - initialX) / step)
-    );
+    const int intervals = static_cast<int>(round((finalX - initialX) / step));
 
     const int points = intervals + 1;
 
     vector<double> x(points);
     vector<double> potential(points);
 
-    for (int i = 0; i < points; i++)
-    {
+    for (int i = 0; i < points; ++i) {
+
         x[i] = initialX + i * step;
         potential[i] = x[i] * x[i];
+
     }
 
-    //************************************************************/
-    //*                Parametros normalizados                   *
-    //************************************************************/
-
+    // Normalized parameters
     const double effectiveMass = 0.5;
     const double hbar = 1.0;
 
-    // Energias conocidas del oscilador armonico normalizado
-    const double energy0 = 1.0;
-    const double energy1 = 3.0;
+    // Initial energy search interval
+    const double lowerEnergy = 0.5;
+    const double upperEnergy = 1.5;
 
-    //************************************************************/
-    //*               Estado basal: par, sin nodos               *
-    //*               psi(0) = 1, psi'(0) = 0                    *
-    //************************************************************/
+    const double energyTolerance = 1e-10;
+    const int maxIterations = 100;
 
-    auto euler0 = solveSchrodingerEuler(x, potential, effectiveMass, energy0, hbar, 1.0, 0.0);
+    cout << "Potential: V(x) = x^2\n";
+    cout << "Spatial domain: [" << initialX << ", " << finalX << "]\n";
+    cout << "Spatial step: " << step << '\n';
+    cout << "Number of spatial points: " << points << "\n\n";
 
-    auto leapfrog0 = solveSchrodingerLeapfrog(x, potential, effectiveMass, energy0, hbar, 1.0, 0.0);
+    ofstream history("BisectionConvergence.csv");
 
-    auto numerov0 = solveSchrodingerNumerov(x, potential, effectiveMass, energy0, hbar, 1.0, 0.0);
+    if (!history.is_open()) {
 
-    //************************************************************/
-    //*     Primer estado excitado: impar, un nodo en x = 0      *
-    //*     psi(0) = 0, psi'(0) = 1                              *
-    //************************************************************/
+        cerr << "Error: Could not create convergence CSV.\n";
 
-    auto euler1 = solveSchrodingerEuler(x, potential, effectiveMass, energy1, hbar, 0.0, 1.0);
-
-    auto leapfrog1 = solveSchrodingerLeapfrog(x, potential, effectiveMass, energy1, hbar, 0.0, 1.0);
-
-    auto numerov1 = solveSchrodingerNumerov(x, potential, effectiveMass, energy1, hbar, 0.0, 1.0);
-
-    //************************************************************/
-    //*                  Verificar resultados                    *
-    //************************************************************/
-
-    if (euler0.size() != x.size() || leapfrog0.size() != x.size() || numerov0.size() != x.size() || euler1.size() != x.size() || leapfrog1.size() != x.size() || numerov1.size() != x.size()){
-
-        cerr << "Error al calcular las funciones de onda.\n";
-        return 1;
-    }
-
-    //************************************************************/
-    //*      Crear CSV con el intervalo completo [-3, 3]         *
-    //************************************************************/
-
-    ofstream output("SchrodingerComparison.csv");
-
-    if (!output.is_open()){
-
-        cerr << "No se pudo crear el archivo CSV.\n";
         return 1;
 
     }
 
-    output << "x,V_x," << "Euler_psi0,Leapfrog_psi0,Numerov_psi0," << "Euler_psi1,Leapfrog_psi1,Numerov_psi1\n";
+    history << "iteration,energy,residual\n";
 
-    cout << fixed << setprecision(6);
+    BisectionResult result = bisection(x, potential, effectiveMass, hbar, lowerEnergy, upperEnergy, energyTolerance, maxIterations, history);
 
-    cout << "COMPARACION DE FUNCIONES DE ONDA\n";
-    cout << "Potencial: V(x) = x^2\n";
-    cout << "Intervalo: [-3, 3]\n";
-    cout << "Paso: " << step << '\n';
-    cout << "Puntos en el intervalo completo: " << 2 * intervals + 1 << "\n\n";
+    history.close();
 
-    cout << "x\tV(x)\tEuler_psi0\tLeapfrog_psi0\tNumerov_psi0" << "\tEuler_psi1\tLeapfrog_psi1\tNumerov_psi1\n";
+    if (!result.converged) {
 
-    // Recorrer de -3 a 3
-    for (int i = -intervals; i <= intervals; i++){
+        cerr << "\nThe bisection search did not converge " << "successfully. Check the interval and residual.\n";
 
-        double position = i * step;
-        double positivePosition = abs(position);
+        return 1;
 
-        int j = static_cast<int>(round(positivePosition / step));
+    }
 
-        // Estado basal: par, psi(-x) = psi(x)
-        double e0 = euler0[j];
-        double l0 = leapfrog0[j];
-        double n0 = numerov0[j];
+    // Recalculate the wavefunction at the computed energy
+    vector<double> psi = solveSchrodingerEuler(x, potential, effectiveMass, result.energy, hbar, 0.0, 1.0);
 
-        // Primer excitado: impar, psi(-x) = -psi(x)
-        double sign = (position < 0.0) ? -1.0 : 1.0;
+    if (psi.size() != x.size()) {
 
-        double e1 = sign * euler1[j];
-        double l1 = sign * leapfrog1[j];
-        double n1 = sign * numerov1[j];
+        cerr << "Error: Could not calculate final wavefunction.\n";
 
-        double potentialValue = position * position;
+        return 1;
 
-        output << position << ',' << potentialValue << ',' << e0 << ',' << l0 << ',' << n0 << ',' << e1 << ',' << l1 << ',' << n1 << '\n';
+    }
 
-        // Imprimir cada 0.5 unidades para no saturar la terminal
-        if (i % 50 == 0 || i == intervals){
-            
-            cout << position << '\t' << potentialValue << '\t' << e0 << '\t' << l0 << '\t' << n0 << '\t' << e1 << '\t' << l1 << '\t' << n1 << '\n';
-        }
+    ofstream output("EulerBisectionWavefunction.csv");
+
+    if (!output.is_open()) {
+
+        cerr << "Error: Could not create wavefunction CSV.\n";
+
+        return 1;
+
+    }
+
+    output << "x,V_x,psi\n";
+
+    for (int i = 0; i < points; ++i) {
+
+        output << x[i] << ',' << potential[i] << ',' << psi[i] << '\n';
+
     }
 
     output.close();
 
-    cout << "\nArchivo generado: SchrodingerComparison.csv\n";
+    cout << "\n********************************************\n";
+    cout << "*               FINAL RESULTS              *\n";
+    cout << "********************************************\n";
+    cout << "Computed energy: " << result.energy << '\n';
+    cout << "Final residual psi(3): " << result.residual << '\n';
+    cout << "Iterations: " << result.iterations << '\n';
+    cout << "Wavefunction data: EulerBisectionWavefunction.csv\n";
+    cout << "Convergence history: BisectionConvergence.csv\n";
 
     return 0;
 }
