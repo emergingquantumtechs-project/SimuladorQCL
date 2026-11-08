@@ -168,8 +168,7 @@ public:
             );
 
             // Comprobar si se alcanzo la tolerancia
-            if (abs(functionAtMiddlePoint) < tolerance ||
-                abs(upperLimit - lowerLimit) / 2.0 < tolerance){
+            if (abs(upperLimit - lowerLimit) / 2.0 < tolerance){
 
                 chemical_Potential = middlePoint;
 
@@ -438,41 +437,15 @@ int main(){
     effectiveMass,
     hbar
 );
-    // Potencial quimico provisional en eV
-    double testChemicalPotential = 0.1;
 
-    // Calcular densidad superficial de cada subbanda
-    cout << "\nDensidades superficiales:" << endl;
+    // Densidad superficial provisional para la prueba
+    double targetDensity = 1e16; // m^-2
 
-    for (size_t i = 0; i < energies_eV.size(); i++){
-    double density = calculator.CalculateSubbandDensity(
-        energies_eV[i],
-        testChemicalPotential
-    );
+    double lowerLimit = -0.1; // eV
+    double upperLimit = 0.2;  // eV
+    double tolerance = 1e-8;  // eV
+    int maxIterations = 100;
 
-    cout << "Subbanda " << i
-         << ": " << density << " m^-2" << endl;
-}
-
-    // Calcular la densidad superficial objetivo para la prueba
-    double targetDensity = 0.0;
-
-    // Sumar las densidades superficiales de todas las subbandas
-    for (size_t i = 0; i < energies_eV.size(); i++){
-
-    targetDensity += calculator.CalculateSubbandDensity(
-        energies_eV[i],
-        testChemicalPotential
-    );
-}
-
-    //biseccion
-    double lowerLimit = -0.1; 
-    double upperLimit = 0.2; //eV
-    double tolerance = 1e-8;  
-    int maxIterations = 100;  
-
-    // Calcular el potencial quimico mediante el metodo de biseccion
     double calculatedChemicalPotential = calculator.CalculateChemicalPotential(
         energies_eV,
         targetDensity,
@@ -482,6 +455,7 @@ int main(){
         maxIterations
     );
 
+    cout << "Chemical potential: " << calculatedChemicalPotential << " eV" << endl;
     cout << "\nPotencial quimico calculado:" << endl;
     cout << calculatedChemicalPotential << " eV" << endl;
 
