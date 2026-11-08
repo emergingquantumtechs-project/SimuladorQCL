@@ -454,14 +454,23 @@ int main(){
          << ": " << density << " m^-2" << endl;
 }
 
-      // Densidad superficial objetivo para la prueba
-    double targetDensity = 8.44128e16;
+    // Calcular la densidad superficial objetivo para la prueba
+    double targetDensity = 0.0;
 
-    // Parametros para el metodo de biseccion
-    double lowerLimit = -0.1;       // Limite inferior en eV
-    double upperLimit = 0.2;        // Limite superior en eV
-    double tolerance = 1e-8;        // Tolerancia de convergencia
-    int maxIterations = 100;        // Numero maximo de iteraciones
+    // Sumar las densidades superficiales de todas las subbandas
+    for (size_t i = 0; i < energies_eV.size(); i++){
+
+    targetDensity += calculator.CalculateSubbandDensity(
+        energies_eV[i],
+        testChemicalPotential
+    );
+}
+
+    //biseccion
+    double lowerLimit = -0.1; 
+    double upperLimit = 0.2; //eV
+    double tolerance = 1e-8;  
+    int maxIterations = 100;  
 
     // Calcular el potencial quimico mediante el metodo de biseccion
     double calculatedChemicalPotential = calculator.CalculateChemicalPotential(
@@ -473,14 +482,12 @@ int main(){
         maxIterations
     );
 
-    // Mostrar el potencial quimico calculado
     cout << "\nPotencial quimico calculado:" << endl;
     cout << calculatedChemicalPotential << " eV" << endl;
 
-        // Calcular las ocupaciones de Fermi-Dirac
+        //ocupaciones de Fermi-Dirac
     vector<double> occupations = calculator.CalculateFermiDirac(energies_eV);
 
-    // Mostrar las ocupaciones de cada subbanda
     cout << "\nOcupaciones de Fermi-Dirac:" << endl;
 
     for (size_t i = 0; i < occupations.size(); i++){
