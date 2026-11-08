@@ -410,13 +410,6 @@ int main(){
                 << energies_eV[i] << " eV" << endl;
         }
 
-    // Mostrar el primer valor de cada funcion de onda
-    cout << "\nPrimer punto de las funciones de onda:" << endl;
-    for (size_t i = 0; i < wavefunctions.size(); i++){
-        cout << "Psi" << i << " = "
-             << wavefunctions[i][0] << endl;
-    }
-
     // Constantes para la prueba
     double boltzmannConstant = 1.380649e-23;
     double temperature = 300.0;
@@ -450,7 +443,6 @@ int main(){
     );
 
     cout << "Chemical potential: " << calculatedChemicalPotential << " eV" << endl;
-    cout << "\nPotencial quimico calculado:" << endl;
     cout << calculatedChemicalPotential << " eV" << endl;
 
         //ocupaciones de Fermi-Dirac
