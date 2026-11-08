@@ -138,7 +138,6 @@ public:
         int maxIterations
     ){
 
-        // Evaluar la funcion en los dos limites iniciales
         double functionAtLowerLimit = CalculateChemicalPotentialFunction(
             energies, lowerLimit, targetDensity
         );
@@ -147,7 +146,6 @@ public:
             energies, upperLimit, targetDensity
         );
 
-        // Comprobar que los limites encierren una raiz
         if (functionAtLowerLimit * functionAtUpperLimit >= 0.0){
 
             cout << "Error: Los limites no encierran una raiz." << endl;
@@ -156,41 +154,37 @@ public:
 
         double middlePoint = 0.0;
 
-        // Repetir el procedimiento hasta alcanzar la convergencia
         for (int i = 0; i < maxIterations; i++){
 
-            // Calcular el punto medio del intervalo
+            //punto medio del intervalo
             middlePoint = (lowerLimit + upperLimit) / 2.0;
 
-            // Evaluar la funcion en el punto medio
+            //evaluala funcion en el punto medio
             double functionAtMiddlePoint = CalculateChemicalPotentialFunction(
                 energies, middlePoint, targetDensity
             );
 
-            // Comprobar si se alcanzo la tolerancia
             if (abs(upperLimit - lowerLimit) / 2.0 < tolerance){
-
                 chemical_Potential = middlePoint;
 
                 return chemical_Potential;
             }
 
-            // Seleccionar la mitad del intervalo que contiene la raiz
+            //mitad del intervalo que contiene la raiz
             if (functionAtLowerLimit * functionAtMiddlePoint < 0.0){
 
                 upperLimit = middlePoint;
                 functionAtUpperLimit = functionAtMiddlePoint;
 
             }
-            else{
+            else
+            {
 
                 lowerLimit = middlePoint;
                 functionAtLowerLimit = functionAtMiddlePoint;
 
             }
         }
-
-        // Informar si no se alcanzo la convergencia
         cout << "No se alcanzo la convergencia." << endl;
 
         return 0.0;
