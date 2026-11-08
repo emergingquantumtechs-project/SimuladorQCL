@@ -66,7 +66,7 @@ int main() {
     //malla de posiciones adimensionales xi
     double xiMin = -5.0; // Lim inferior de la malla
     double xiMax = 5.0; // Lim superior de la malla
-    double step = 0.01
+    double step = 0.01;
 
     int numberOfPoints =
         static_cast<int>((xiMax - xiMin) / step) + 1;
