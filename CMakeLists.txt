@@ -5,8 +5,8 @@ project(SimuladorQCL)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(SchrodingerTest
-    test/SchrodingerTest.cpp
+add_executable(EnergyScanner
+    test/EnergyScanner.cpp
     src/Schrodinger.cpp
     src/Methods.cpp
 )

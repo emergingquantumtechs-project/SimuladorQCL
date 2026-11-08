@@ -1,3 +1,3 @@
-E:/Tesis/SimuladorQCL/SimuladorQCL/build/CMakeFiles/SchrodingerTest.dir
+E:/Tesis/SimuladorQCL/SimuladorQCL/build/CMakeFiles/EnergyScanner.dir
 E:/Tesis/SimuladorQCL/SimuladorQCL/build/CMakeFiles/edit_cache.dir
 E:/Tesis/SimuladorQCL/SimuladorQCL/build/CMakeFiles/rebuild_cache.dir

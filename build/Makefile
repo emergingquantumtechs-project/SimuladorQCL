@@ -116,24 +116,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SchrodingerTest
+# Target rules for targets named EnergyScanner
 
 # Build rule for target.
-SchrodingerTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SchrodingerTest
-.PHONY : SchrodingerTest
+EnergyScanner: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 EnergyScanner
+.PHONY : EnergyScanner
 
 # fast build rule for target.
-SchrodingerTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/build
-.PHONY : SchrodingerTest/fast
+EnergyScanner/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/build
+.PHONY : EnergyScanner/fast
 
 src/Methods.obj: src/Methods.cpp.obj
 .PHONY : src/Methods.obj
 
 # target to build an object file
 src/Methods.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Methods.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/src/Methods.cpp.obj
 .PHONY : src/Methods.cpp.obj
 
 src/Methods.i: src/Methods.cpp.i
@@ -141,7 +141,7 @@ src/Methods.i: src/Methods.cpp.i
 
 # target to preprocess a source file
 src/Methods.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Methods.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/src/Methods.cpp.i
 .PHONY : src/Methods.cpp.i
 
 src/Methods.s: src/Methods.cpp.s
@@ -149,7 +149,7 @@ src/Methods.s: src/Methods.cpp.s
 
 # target to generate assembly for a file
 src/Methods.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Methods.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/src/Methods.cpp.s
 .PHONY : src/Methods.cpp.s
 
 src/Schrodinger.obj: src/Schrodinger.cpp.obj
@@ -157,7 +157,7 @@ src/Schrodinger.obj: src/Schrodinger.cpp.obj
 
 # target to build an object file
 src/Schrodinger.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Schrodinger.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/src/Schrodinger.cpp.obj
 .PHONY : src/Schrodinger.cpp.obj
 
 src/Schrodinger.i: src/Schrodinger.cpp.i
@@ -165,7 +165,7 @@ src/Schrodinger.i: src/Schrodinger.cpp.i
 
 # target to preprocess a source file
 src/Schrodinger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Schrodinger.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/src/Schrodinger.cpp.i
 .PHONY : src/Schrodinger.cpp.i
 
 src/Schrodinger.s: src/Schrodinger.cpp.s
@@ -173,32 +173,32 @@ src/Schrodinger.s: src/Schrodinger.cpp.s
 
 # target to generate assembly for a file
 src/Schrodinger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/src/Schrodinger.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/src/Schrodinger.cpp.s
 .PHONY : src/Schrodinger.cpp.s
 
-test/SchrodingerTest.obj: test/SchrodingerTest.cpp.obj
-.PHONY : test/SchrodingerTest.obj
+test/EnergyScanner.obj: test/EnergyScanner.cpp.obj
+.PHONY : test/EnergyScanner.obj
 
 # target to build an object file
-test/SchrodingerTest.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/test/SchrodingerTest.cpp.obj
-.PHONY : test/SchrodingerTest.cpp.obj
+test/EnergyScanner.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/test/EnergyScanner.cpp.obj
+.PHONY : test/EnergyScanner.cpp.obj
 
-test/SchrodingerTest.i: test/SchrodingerTest.cpp.i
-.PHONY : test/SchrodingerTest.i
+test/EnergyScanner.i: test/EnergyScanner.cpp.i
+.PHONY : test/EnergyScanner.i
 
 # target to preprocess a source file
-test/SchrodingerTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/test/SchrodingerTest.cpp.i
-.PHONY : test/SchrodingerTest.cpp.i
+test/EnergyScanner.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/test/EnergyScanner.cpp.i
+.PHONY : test/EnergyScanner.cpp.i
 
-test/SchrodingerTest.s: test/SchrodingerTest.cpp.s
-.PHONY : test/SchrodingerTest.s
+test/EnergyScanner.s: test/EnergyScanner.cpp.s
+.PHONY : test/EnergyScanner.s
 
 # target to generate assembly for a file
-test/SchrodingerTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SchrodingerTest.dir\build.make CMakeFiles/SchrodingerTest.dir/test/SchrodingerTest.cpp.s
-.PHONY : test/SchrodingerTest.cpp.s
+test/EnergyScanner.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\EnergyScanner.dir\build.make CMakeFiles/EnergyScanner.dir/test/EnergyScanner.cpp.s
+.PHONY : test/EnergyScanner.cpp.s
 
 # Help Target
 help:
@@ -208,16 +208,16 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... SchrodingerTest
+	@echo ... EnergyScanner
 	@echo ... src/Methods.obj
 	@echo ... src/Methods.i
 	@echo ... src/Methods.s
 	@echo ... src/Schrodinger.obj
 	@echo ... src/Schrodinger.i
 	@echo ... src/Schrodinger.s
-	@echo ... test/SchrodingerTest.obj
-	@echo ... test/SchrodingerTest.i
-	@echo ... test/SchrodingerTest.s
+	@echo ... test/EnergyScanner.obj
+	@echo ... test/EnergyScanner.i
+	@echo ... test/EnergyScanner.s
 .PHONY : help
 
 
